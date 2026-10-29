@@ -2,10 +2,22 @@
   "symbol": "A656C000",
   "name": "3년국채 F 202612",
   "tick_size": 0.01,
+  "tick_value": 10000,
   "interval_minutes": 5,
   "minute_bars": 3000,
   "daily_bars": 60,
   "selected_version": "atr_2.5",
+
+  "live": {
+    "poll_seconds": 1,
+    "warmup_bars": 120,
+    "entry_timeout_seconds": 10,
+    "exit_timeout_seconds": 5,
+    "stop_entry_time": "152500",
+    "close_order_time": "152800",
+    "final_check_time": "153300",
+    "max_query_failures": 3
+  },
 
   "backtest": {
     "start_date": "20260909",
