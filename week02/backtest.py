@@ -1,7 +1,4 @@
-"""저장된 과거 5분봉으로 전략을 백테스트하고 설정 버전별 결과를 비교한다.
-
-API는 호출하지 않는다.
-"""
+"""저장된 과거 5분봉으로 전략을 백테스트하고 설정 버전별 결과를 비교한다."""
 
 import argparse
 import logging
@@ -160,14 +157,14 @@ def run_backtest(bars, daily_bars, params, version, tick_size, interval_minutes)
                     order = ("exit",)
                 continue
 
-            # ATR 기반 값을 정수 틱으로 올림한 뒤 설정한 최소 손절 폭과 비교한다.
+            # ATR × 배수를 틱 단위로 환산해 올림한 뒤 최소 손절 폭과 비교한다.
             # 올림 전에 소수점 아래 6자리로 반올림해 부동소수점 오차를 제거한다.
             stop_ticks = 0
             if atrs[i]:
                 atr_ticks = math.ceil(round(params["atr_multiplier"] * atrs[i] / tick_size, 6))
                 stop_ticks = max(params["min_stop_ticks"], atr_ticks)
             bar_end = add_minutes(bar.time, interval_minutes)
-            # 현재 손실에 손절 폭과 왕복 슬리피지를 더해도 일일 한도 안일 때만 진입한다.
+            # 누적 손익에 손절 폭과 왕복 슬리피지를 보수적으로 반영해도 일일 한도 안일 때만 진입한다.
             can_enter = (
                 params["entry_start"] <= bar_end <= params["entry_end"]
                 and entries < params["max_entries_per_day"]
