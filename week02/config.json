@@ -5,6 +5,7 @@
   "interval_minutes": 5,
   "minute_bars": 3000,
   "daily_bars": 60,
+  "selected_version": "atr_2.5",
 
   "backtest": {
     "start_date": "20260909",
