@@ -16,7 +16,7 @@ class NHClient:
         self.token_expires = 0
 
     def get_token(self):
-        # 토큰은 24시간 유효하므로 만료 직전에만 요청이 실패하지 않도록 5분 일찍 갱신한다.
+        # 만료 5분 전에 갱신한다.
         if time.time() > self.token_expires - 300:
             body = self._request("/auth-service/v1/token", data={
                 "grant_type": "client_credentials",
@@ -32,14 +32,14 @@ class NHClient:
         return self._request(path, json=payload, headers=headers)
 
     def _request(self, path, **kwargs):
-        res = requests.post(f"{self.base_url}{path}", timeout=30, **kwargs)
-        if res.status_code != 200:
-            raise RuntimeError(f"{path} 실패: {res.status_code} {res.text}")
-        return res.json()
+        response = requests.post(f"{self.base_url}{path}", timeout=30, **kwargs)
+        if response.status_code != 200:
+            raise RuntimeError(f"{path} 실패: {response.status_code} {response.text}")
+        return response.json()
 
 
 def create_client(market="domestic"):
     env = load_env()
-    mode = env["NH_ENV"].upper()  # DEMO 또는 REAL
+    mode = env["NH_ENV"].upper()
     prefix = f"NH_{market.upper()}_{mode}"
     return NHClient(env[f"NH_{mode}_URL"], env[f"{prefix}_APP_KEY"], env[f"{prefix}_APP_SECRET"])

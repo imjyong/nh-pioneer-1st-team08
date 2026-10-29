@@ -20,7 +20,7 @@ def fetch_daily_bars(client, symbol, count):
 def fetch_chart(client, path, payload, count):
     """최신 봉부터 과거 방향으로 count개를 조회하고, 오래된 순으로 돌려준다."""
     bars = {}
-    next_key = "99999999"  # 첫 요청 기본값
+    next_key = "99999999"
 
     while len(bars) < count:
         # 2000개씩 요청하면 모의 서버에서 시간 초과가 나서 300개씩 요청한다
