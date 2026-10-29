@@ -2,7 +2,6 @@
 
 import argparse
 import logging
-import math
 from collections import Counter
 from dataclasses import dataclass
 from itertools import groupby
@@ -11,14 +10,13 @@ from pathlib import Path
 from core.bars import load_bars
 from core.config import DATA_DIR, load_json
 from core.indicators import atr
-from week02.strategy import BUY, crossover_signals, daily_direction
+from week02.strategy import BUY, SELL, calculate_stop_ticks, can_enter, crossover_signals, daily_direction
 
 logger = logging.getLogger(__name__)
 
 
 @dataclass
 class Trade:
-    version: str
     date: str
     side: int  # BUY(1) 또는 SELL(-1)
     entry_time: str
@@ -31,7 +29,6 @@ class Trade:
 
 
 def get_args():
-    """명령행 인자를 읽어 반환한다."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", default=Path(__file__).with_name("config.json"))
     parser.add_argument("--period", choices=["compare", "confirm"], default="compare")
@@ -73,7 +70,7 @@ def main():
             params["slippage_ticks"] = args.slippage
         version_trades = [
             trade
-            for trade in run_backtest(bars, daily_bars, params, name, config["tick_size"], config["interval_minutes"])
+            for trade in run_backtest(bars, daily_bars, params, config["tick_size"], config["interval_minutes"])
             if in_period(trade.date)
         ]
         summaries.append(summarize(name, version_trades, len(days)))
@@ -86,7 +83,7 @@ def main():
         )
 
 
-def run_backtest(bars, daily_bars, params, version, tick_size, interval_minutes):
+def run_backtest(bars, daily_bars, params, tick_size, interval_minutes):
     """하루씩 규칙을 적용해 거래 목록을 반환한다.
 
     신호는 봉 마감에 판정하고 다음 봉 시가에 체결한다.
@@ -103,7 +100,7 @@ def run_backtest(bars, daily_bars, params, version, tick_size, interval_minutes)
         day_bars = list(day_bars)
         allowed_side = daily_direction(daily_bars, date, params["daily_filter_window"]) if params["daily_filter"] else 0
         position = None
-        order = None  # 다음 봉 시가에 체결할 주문: ("entry", 방향, 손절 폭) 또는 ("exit",)
+        pending_order = None  # 다음 봉 시가에 체결할 주문: ("entry", 방향, 손절 폭) 또는 ("exit",)
         entries = 0
         day_ticks = 0
 
@@ -111,16 +108,16 @@ def run_backtest(bars, daily_bars, params, version, tick_size, interval_minutes)
             i = start + offset
 
             # 1. 직전 봉 마감에 예약한 주문을 이번 봉 시가에 체결한다.
-            if order and order[0] == "entry":
-                side, stop_distance = order[1], order[2]
+            if pending_order and pending_order[0] == "entry":
+                side, stop_distance = pending_order[1], pending_order[2]
                 price = round(bar.open + side * slippage, 2)
-                position = Trade(version, date, side, bar.time, price, round(price - side * stop_distance, 2))
+                position = Trade(date, side, bar.time, price, round(price - side * stop_distance, 2))
                 entries += 1
-            elif order and order[0] == "exit":
+            elif pending_order and pending_order[0] == "exit":
                 day_ticks += close_position(position, bar.time, bar.open, "cross", slippage, tick_size)
                 trades.append(position)
                 position = None
-            order = None
+            pending_order = None
 
             # 2. 마감 청산 시각이면 해당 봉 시가에 정리하고 그날 거래를 끝낸다.
             #    실제 운영은 15:28 청산 주문이지만 5분봉으로는 15:25 봉 시가 청산으로 근사한다.
@@ -137,7 +134,7 @@ def run_backtest(bars, daily_bars, params, version, tick_size, interval_minutes)
             if position:
                 if position.side == BUY and bar.low <= position.stop_price:
                     fill = min(bar.open, position.stop_price)
-                elif position.side != BUY and bar.high >= position.stop_price:
+                elif position.side == SELL and bar.high >= position.stop_price:
                     fill = max(bar.open, position.stop_price)
                 else:
                     fill = None
@@ -154,26 +151,13 @@ def run_backtest(bars, daily_bars, params, version, tick_size, interval_minutes)
             if position:
                 # 반대 교차는 청산에만 쓰고, 같은 신호로 반대 방향 진입은 하지 않는다.
                 if signal == -position.side:
-                    order = ("exit",)
+                    pending_order = ("exit",)
                 continue
 
-            # ATR × 배수를 틱 단위로 환산해 올림한 뒤 최소 손절 폭과 비교한다.
-            # 올림 전에 소수점 아래 6자리로 반올림해 부동소수점 오차를 제거한다.
-            stop_ticks = 0
-            if atrs[i]:
-                atr_ticks = math.ceil(round(params["atr_multiplier"] * atrs[i] / tick_size, 6))
-                stop_ticks = max(params["min_stop_ticks"], atr_ticks)
+            stop_ticks = calculate_stop_ticks(atrs[i], params, tick_size)
             bar_end = add_minutes(bar.time, interval_minutes)
-            # 누적 손익에 손절 폭과 왕복 슬리피지를 보수적으로 반영해도 일일 한도 안일 때만 진입한다.
-            can_enter = (
-                params["entry_start"] <= bar_end <= params["entry_end"]
-                and entries < params["max_entries_per_day"]
-                and stop_ticks > 0
-                and -day_ticks + stop_ticks + 2 * params["slippage_ticks"] <= params["daily_loss_limit_ticks"]
-                and allowed_side in (0, signal)
-            )
-            if can_enter:
-                order = ("entry", signal, stop_ticks * tick_size)
+            if can_enter(params, signal, bar_end, entries, day_ticks, stop_ticks, allowed_side):
+                pending_order = ("entry", signal, stop_ticks * tick_size)
 
         # 마감 청산 시각의 봉이 없는 날은 마지막 봉 종가에 정리한다.
         if position:
@@ -199,7 +183,6 @@ def close_position(trade, time, price, reason, slippage, tick_size):
 
 
 def summarize(version, trades, days):
-    """거래 목록을 버전별 요약 지표로 집계한다."""
     ticks = [trade.ticks for trade in trades]
     equity = peak = max_drawdown = 0
     for tick in ticks:
@@ -223,7 +206,6 @@ def summarize(version, trades, days):
 
 
 def add_minutes(hhmmss, minutes):
-    """HHMMSS 형식의 시각에 분을 더해 같은 형식으로 반환한다."""
     total = int(hhmmss[:2]) * 60 + int(hhmmss[2:4]) + minutes
     return f"{total // 60:02d}{total % 60:02d}00"
 
