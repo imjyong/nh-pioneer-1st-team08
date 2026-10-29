@@ -32,7 +32,7 @@ class NHClient:
         return self._request(path, json=payload, headers=headers)
 
     def _request(self, path, **kwargs):
-        response = requests.post(f"{self.base_url}{path}", timeout=30, **kwargs)
+        response = requests.post(f"{self.base_url}{path}", timeout=10, **kwargs)
         if response.status_code != 200:
             raise RuntimeError(f"{path} 실패: {response.status_code} {response.text}")
         return response.json()
