@@ -54,3 +54,13 @@ def to_bar(row):
         cum_volume=int(row.get("occurs1_cum_trd_qty") or 0),
         open_interest=int(row.get("occurs1_opint") or 0),
     )
+
+
+def fetch_best_quote(client, symbol):
+    """최우선 (매도호가, 매수호가)를 반환한다. 장 시작 전처럼 호가가 0이면 None."""
+    body = client.post("/trade/v1/domestic/price-bid", {"exch_cd": "KSP", "sym": symbol})  # KSP: 주간
+    levels = body.get("Occurs1") or []
+    best = levels[0] if isinstance(levels, list) and levels else levels
+    ask = float(best.get("occurs1_ask_best_pric") or 0) if best else 0
+    bid = float(best.get("occurs1_bid_best_pric") or 0) if best else 0
+    return (ask, bid) if ask > 0 and bid > 0 else None
