@@ -39,3 +39,8 @@ def load_bars(path):
             )
             for row in csv.DictReader(f)
         ]
+
+
+def add_minutes(hhmmss, minutes):
+    total = int(hhmmss[:2]) * 60 + int(hhmmss[2:4]) + minutes
+    return f"{total // 60:02d}{total % 60:02d}00"

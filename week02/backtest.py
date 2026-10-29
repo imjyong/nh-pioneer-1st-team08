@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from itertools import groupby
 from pathlib import Path
 
-from core.bars import load_bars
+from core.bars import add_minutes, load_bars
 from core.config import DATA_DIR, load_json
 from core.indicators import atr
 from week02.strategy import BUY, SELL, calculate_stop_ticks, can_enter, crossover_signals, daily_direction
@@ -57,6 +57,8 @@ def main():
     else:
         in_period = lambda date: date > dates["split_date"]
     days = sorted({bar.date for bar in bars if in_period(bar.date)})
+    if not days:
+        raise SystemExit(f"{args.period} 기간에 데이터가 없습니다.")
     logger.info(f"{args.period} 기간: {days[0]} ~ {days[-1]}, {len(days)}거래일")
 
     versions = config["versions"]
@@ -203,11 +205,6 @@ def summarize(version, trades, days):
         "cross": reasons["cross"],
         "close": reasons["close"],
     }
-
-
-def add_minutes(hhmmss, minutes):
-    total = int(hhmmss[:2]) * 60 + int(hhmmss[2:4]) + minutes
-    return f"{total // 60:02d}{total % 60:02d}00"
 
 
 if __name__ == "__main__":
