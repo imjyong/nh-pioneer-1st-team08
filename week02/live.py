@@ -13,7 +13,7 @@ from core.broker import NHBroker, OrderRejected, PaperBroker
 from core.client import create_client
 from core.config import load_json
 from core.indicators import atr, sma
-from core.market_data import fetch_daily_bars, fetch_minute_bars
+from core.market_data import fetch_best_quote, fetch_daily_bars, fetch_minute_bars
 from week02.strategy import BUY, calculate_stop_ticks, can_enter, crossover_signals, daily_direction
 
 logger = logging.getLogger(__name__)
@@ -52,6 +52,11 @@ class EventLog:
         self.jsonl.write(json.dumps(record, ensure_ascii=False) + "\n")
         self.jsonl.flush()
 
+    def close(self):
+        self.jsonl.close()
+        for handler in logger.handlers:
+            handler.close()
+
 
 class LiveTrader:
     def __init__(self, config, broker_name, client, broker, log):
@@ -74,7 +79,7 @@ class LiveTrader:
         self.day_ticks = 0
         self.exit_counts = Counter()
         self.last_bar_end = None
-        self.query_failures = 0
+        self.query_failures = Counter()  # 대상(호가, 분봉, 주문내역)별 연속 실패 횟수
         self.entry_stopped = False
         self.close_logged = False
 
@@ -158,27 +163,22 @@ class LiveTrader:
 
     def fetch_quote(self):
         try:
-            body = self.client.post("/trade/v1/domestic/price-bid", {"exch_cd": "KSP", "sym": self.symbol})
+            quote = fetch_best_quote(self.client, self.symbol)
         except Exception:
             self.record_failure("호가")
             return None
-        self.query_failures = 0
-        levels = body.get("Occurs1") or []
-        best = levels[0] if isinstance(levels, list) and levels else levels
-        ask = float(best.get("occurs1_ask_best_pric") or 0) if best else 0
-        bid = float(best.get("occurs1_bid_best_pric") or 0) if best else 0
-        if ask <= 0 or bid <= 0:  # 장 시작 전에는 호가가 0으로 올 수 있다.
-            return None
-        if isinstance(self.broker, PaperBroker):
-            self.broker.quote = (ask, bid)
-        return ask, bid
+        self.query_failures["호가"] = 0
+        if quote and isinstance(self.broker, PaperBroker):
+            self.broker.quote = quote
+        return quote
 
     def record_failure(self, target):
-        self.query_failures += 1
-        if self.query_failures >= self.live["max_query_failures"]:
-            self.log.write("ERROR", "조회 실패", 대상=target, 연속실패=f"{self.query_failures}회", 신규진입="중단")
+        self.query_failures[target] += 1
+        count = self.query_failures[target]
+        if count >= self.live["max_query_failures"]:
+            self.log.write("ERROR", "조회 실패", 대상=target, 연속실패=f"{count}회", 신규진입="중단")
         else:
-            self.log.write("WARNING", "조회 실패", 대상=target, 연속실패=f"{self.query_failures}회", 조치="재시도")
+            self.log.write("WARNING", "조회 실패", 대상=target, 연속실패=f"{count}회", 조치="재시도")
 
     def check_daily_loss(self, quote):
         # 실현 손익과 지금 청산했을 때의 미실현 손익을 더해 일일 손실 한도를 넘으면 청산하고 그날 진입을 멈춘다.
@@ -224,6 +224,7 @@ class LiveTrader:
         except Exception:
             self.record_failure("분봉")
             return
+        self.query_failures["분봉"] = 0
         last = bars[-1] if bars else None
         bar_end = add_minutes(last.time, interval) if last else ""
         if not last or last.date != self.today or bar_end != boundary.strftime("%H%M%S"):
@@ -246,7 +247,7 @@ class LiveTrader:
             not self.position
             and not self.open_entry
             and not self.entry_stopped
-            and self.query_failures < self.live["max_query_failures"]
+            and max(self.query_failures.values(), default=0) < self.live["max_query_failures"]
             and quote is not None
             and can_enter(self.params, signal, bar_end, self.entries, self.day_ticks, stop_ticks, allowed_side)
         )
@@ -296,6 +297,7 @@ class LiveTrader:
         except Exception:
             self.record_failure("주문내역")
             return
+        self.query_failures["주문내역"] = 0
         if order and order["filled"] >= 1 and order["price"] > 0:
             self.open_entry = None
             self.open_position(side, order, stop_ticks, atr_value)
@@ -328,6 +330,7 @@ class LiveTrader:
             except Exception:
                 self.record_failure("주문내역")
                 return
+            self.query_failures["주문내역"] = 0
             if order and order["remaining"] > 0:
                 return  # 청산 주문이 남아 있으면 계속 기다린다.
             self.exit_order = None  # 미체결 잔량이 없으면 청산 주문을 다시 낸다.
@@ -371,6 +374,7 @@ class LiveTrader:
         while time.time() < deadline:
             try:
                 order = self.broker.get_order(order_no)
+                self.query_failures["주문내역"] = 0
             except Exception:
                 self.record_failure("주문내역")
                 order = None
@@ -447,6 +451,8 @@ def main():
         trader.run()
     except KeyboardInterrupt:
         trader.shutdown()
+    finally:
+        log.close()
 
 
 if __name__ == "__main__":
