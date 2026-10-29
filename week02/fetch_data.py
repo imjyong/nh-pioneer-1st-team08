@@ -1,8 +1,4 @@
-"""과거 분봉과 일봉을 조회해 CSV로 저장한다. 주문은 내지 않는다.
-
-저장소 루트에서 실행:
-    python3 -m week02.fetch_data
-"""
+"""과거 분봉과 일봉을 조회해 CSV로 저장한다. 주문은 내지 않는다."""
 
 import argparse
 import logging
