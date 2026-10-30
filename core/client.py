@@ -14,6 +14,7 @@ class NHClient:
         self.app_secret = app_secret
         self.token = None
         self.token_expires = 0
+        self.session = requests.Session()  # 연결을 재사용해 매번 새로 맺는 지연을 줄인다.
 
     def get_token(self):
         # 만료 5분 전에 갱신한다.
@@ -27,12 +28,12 @@ class NHClient:
             self.token_expires = time.time() + int(body["expires_in"])
         return self.token
 
-    def post(self, path, payload):
+    def post(self, path, payload, timeout=10):
         headers = {"Authorization": f"Bearer {self.get_token()}"}
-        return self._request(path, json=payload, headers=headers)
+        return self._request(path, json=payload, headers=headers, timeout=timeout)
 
-    def _request(self, path, **kwargs):
-        response = requests.post(f"{self.base_url}{path}", timeout=10, **kwargs)
+    def _request(self, path, timeout=10, **kwargs):
+        response = self.session.post(f"{self.base_url}{path}", timeout=timeout, **kwargs)
         if response.status_code != 200:
             raise RuntimeError(f"{path} 실패: {response.status_code} {response.text}")
         return response.json()
