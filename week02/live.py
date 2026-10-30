@@ -171,12 +171,15 @@ class LiveTrader:
         ]
 
     def fetch_quote(self):
+        # 호가는 1초마다 보므로 오래 기다리지 않는다. 실패하면 바로 한 번 더 본다.
         try:
-            # 호가는 1초마다 보므로 오래 기다리지 않는다. 기다리는 동안 손절 확인도 멈춘다.
             quote = fetch_best_quote(self.client, self.symbol, timeout=3)
-        except Exception as error:
-            self.record_failure("호가", error)
-            return None
+        except Exception:
+            try:
+                quote = fetch_best_quote(self.client, self.symbol, timeout=3)
+            except Exception as error:
+                self.record_failure("호가", error)
+                return None
         self.query_failures["호가"] = 0
         if quote and isinstance(self.broker, PaperBroker):
             self.broker.quote = quote
@@ -242,10 +245,12 @@ class LiveTrader:
             if now - boundary >= timedelta(seconds=30):
                 self.last_bar_end = boundary
             return
-        self.last_bar_end = boundary
 
         closes = [bar.close for bar in bars]
         signal = crossover_signals(closes, self.params["short_window"], self.params["long_window"])[-1]
+        if signal and not self.position and quote is None and now - boundary < timedelta(seconds=30):
+            return  # 진입에 쓸 호가를 받을 때까지 이 봉의 신호를 소비하지 않는다.
+        self.last_bar_end = boundary
         if not signal:
             return
 
