@@ -23,8 +23,8 @@ class NHBroker:
             "ord_tp_cd": "2" if is_market else "1",
             "ord_qty": "1",
             "ord_pric": "0" if is_market else f"{price:.2f}",
-            # 시장가 FOK는 거부된다(5039). 시장가는 FAK, 지정가는 FAS로 주문한다.
-            "exec_cnd_cd": "3" if is_market else "1",
+            # 시장가는 FOK, FAK 모두 거부된다 (10/30 장중 확인). 시장가, 지정가 모두 FAS로 주문한다.
+            "exec_cnd_cd": "1",
         }
         body = self.client.post("/trade/v1/domestic/order", payload)
         order_no = (body.get("ord_no") or "").strip()
