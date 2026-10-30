@@ -56,9 +56,9 @@ def to_bar(row):
     )
 
 
-def fetch_best_quote(client, symbol):
+def fetch_best_quote(client, symbol, timeout=10):
     """최우선 (매도호가, 매수호가)를 반환한다. 장 시작 전처럼 호가가 0이면 None."""
-    body = client.post("/trade/v1/domestic/price-bid", {"exch_cd": "KSP", "sym": symbol})  # KSP: 주간
+    body = client.post("/trade/v1/domestic/price-bid", {"exch_cd": "KSP", "sym": symbol}, timeout=timeout)  # KSP: 주간
     levels = body.get("Occurs1") or []
     best = levels[0] if isinstance(levels, list) and levels else levels
     ask = float(best.get("occurs1_ask_best_pric") or 0) if best else 0
