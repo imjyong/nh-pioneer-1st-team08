@@ -137,8 +137,17 @@ class LiveTrader:
             미체결="0건",
         )
 
-        self.daily_bars = fetch_daily_bars(self.client, self.symbol, 30)
-        bars = self.completed_bars()
+        for attempt in range(1, 4):
+            try:
+                self.daily_bars = fetch_daily_bars(self.client, self.symbol, 30)
+                bars = self.completed_bars()
+                break
+            except Exception as error:
+                self.record_failure("준비 봉", error)
+                if attempt == 3:
+                    self.log.write("ERROR", "오류", 단계="준비", 내용="준비 봉 조회 3회 실패", 조치="전략 시작 안 함")
+                    raise SystemExit(1)
+                time.sleep(2)
         if len(bars) <= self.params["long_window"]:
             self.log.write("ERROR", "오류", 단계="준비", 분봉=f"{len(bars)}개", 조치="전략 시작 안 함")
             raise SystemExit(1)
@@ -163,22 +172,23 @@ class LiveTrader:
 
     def fetch_quote(self):
         try:
-            quote = fetch_best_quote(self.client, self.symbol)
-        except Exception:
-            self.record_failure("호가")
+            # 호가는 1초마다 보므로 오래 기다리지 않는다. 기다리는 동안 손절 확인도 멈춘다.
+            quote = fetch_best_quote(self.client, self.symbol, timeout=3)
+        except Exception as error:
+            self.record_failure("호가", error)
             return None
         self.query_failures["호가"] = 0
         if quote and isinstance(self.broker, PaperBroker):
             self.broker.quote = quote
         return quote
 
-    def record_failure(self, target):
+    def record_failure(self, target, error=None):
         self.query_failures[target] += 1
         count = self.query_failures[target]
         if count >= self.live["max_query_failures"]:
-            self.log.write("ERROR", "조회 실패", 대상=target, 연속실패=f"{count}회", 신규진입="중단")
+            self.log.write("ERROR", "조회 실패", 대상=target, 원인=type(error).__name__, 연속실패=f"{count}회", 신규진입="중단")
         else:
-            self.log.write("WARNING", "조회 실패", 대상=target, 연속실패=f"{count}회", 조치="재시도")
+            self.log.write("WARNING", "조회 실패", 대상=target, 원인=type(error).__name__, 연속실패=f"{count}회", 조치="재시도")
 
     def check_daily_loss(self, quote):
         # 실현 손익과 지금 청산했을 때의 미실현 손익을 더해 일일 손실 한도를 넘으면 청산하고 그날 진입을 멈춘다.
@@ -221,8 +231,8 @@ class LiveTrader:
 
         try:
             bars = self.completed_bars()
-        except Exception:
-            self.record_failure("분봉")
+        except Exception as error:
+            self.record_failure("분봉", error)
             return
         self.query_failures["분봉"] = 0
         last = bars[-1] if bars else None
@@ -294,8 +304,8 @@ class LiveTrader:
         order_no, side, stop_ticks, atr_value = self.open_entry
         try:
             order = self.broker.get_order(order_no)
-        except Exception:
-            self.record_failure("주문내역")
+        except Exception as error:
+            self.record_failure("주문내역", error)
             return
         self.query_failures["주문내역"] = 0
         if order and order["filled"] >= 1 and order["price"] > 0:
@@ -327,8 +337,8 @@ class LiveTrader:
                 return
             try:
                 order = self.broker.get_order(order_no)
-            except Exception:
-                self.record_failure("주문내역")
+            except Exception as error:
+                self.record_failure("주문내역", error)
                 return
             self.query_failures["주문내역"] = 0
             if order and order["remaining"] > 0:
@@ -375,8 +385,8 @@ class LiveTrader:
             try:
                 order = self.broker.get_order(order_no)
                 self.query_failures["주문내역"] = 0
-            except Exception:
-                self.record_failure("주문내역")
+            except Exception as error:
+                self.record_failure("주문내역", error)
                 order = None
             if order and order["rejected"]:
                 self.log.write("ERROR", "주문 응답", 주문번호=order_no, 상태="거부", 내용=order["reason"])
