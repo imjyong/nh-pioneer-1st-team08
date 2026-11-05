@@ -8,6 +8,13 @@
   "minute_bars": 9000,
   "selected_version": "base",
 
+  "live": {
+    "warmup_bars": 300,
+    "fill_timeout_seconds": 5,
+    "max_silence_seconds": 60,
+    "final_check_time": "235700"
+  },
+
   "strategy": {
     "range_start": "223000",
     "range_minutes": 60,
@@ -15,7 +22,7 @@
     "close_time": "235500",
     "vwap_start": "080000",
     "target_multiple": 2,
-    "max_stop_ticks": 200,
+    "max_stop_ticks": 400,
     "max_entries_per_day": 1,
     "slippage_ticks": 1,
     "sma_filter": false,
@@ -24,6 +31,8 @@
 
   "versions": {
     "base": {},
-    "sma_filter_on": {"sma_filter": true}
+    "sma_filter_on": {"sma_filter": true},
+    "max_stop_200": {"max_stop_ticks": 200},
+    "max_stop_300": {"max_stop_ticks": 300}
   }
 }
