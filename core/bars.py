@@ -12,7 +12,7 @@ class Bar:
     high: float
     low: float
     close: float
-    cum_volume: int  # 그날 누적 거래량
+    cum_volume: int  # API 필드명과 달리 봉별 거래량
     open_interest: int
 
 
