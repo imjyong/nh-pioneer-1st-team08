@@ -5,6 +5,7 @@
   "tick_size": 0.25,
   "tick_value": 0.5,
   "interval_minutes": 5,
+  "minute_bars": 9000,
   "selected_version": "base",
 
   "strategy": {
