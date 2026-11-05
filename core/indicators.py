@@ -1,4 +1,4 @@
-"""이동평균과 ATR을 계산한다."""
+"""이동평균, ATR, VWAP을 계산한다."""
 
 
 def sma(values, window):
@@ -27,3 +27,17 @@ def true_ranges(bars):
 def atr(bars, window):
     """최근 window개 TR의 산술평균으로 ATR을 계산한다."""
     return sma(true_ranges(bars), window)
+
+
+def vwap(bars, volumes):
+    """bars의 첫 봉부터 누적한 VWAP을 계산한다. 거래량이 쌓이기 전까지는 None으로 둔다.
+
+    봉의 대표 가격은 (고가 + 저가 + 종가) / 3을 사용한다.
+    """
+    result = []
+    total_amount = total_volume = 0
+    for bar, volume in zip(bars, volumes):
+        total_amount += (bar.high + bar.low + bar.close) / 3 * volume
+        total_volume += volume
+        result.append(total_amount / total_volume if total_volume else None)
+    return result
