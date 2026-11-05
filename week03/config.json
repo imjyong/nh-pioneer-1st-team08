@@ -15,6 +15,14 @@
     "final_check_time": "235700"
   },
 
+  "backtest": {
+    "start_date": "20260922",
+    "split_date": "20261020",
+    "end_date": "20261104",
+    "summer_time_end": "20261101",
+    "round_trip_fee": 4
+  },
+
   "strategy": {
     "range_start": "223000",
     "range_minutes": 60,
