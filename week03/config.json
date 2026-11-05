@@ -1,0 +1,28 @@
+{
+  "symbol": "MNQZ26",
+  "name": "Micro E-mini Nasdaq-100 202612",
+  "exchange": "FCME",
+  "tick_size": 0.25,
+  "tick_value": 0.5,
+  "interval_minutes": 5,
+  "selected_version": "base",
+
+  "strategy": {
+    "range_start": "223000",
+    "range_minutes": 60,
+    "entry_end": "235000",
+    "close_time": "235500",
+    "vwap_start": "080000",
+    "target_multiple": 2,
+    "max_stop_ticks": 200,
+    "max_entries_per_day": 1,
+    "slippage_ticks": 1,
+    "sma_filter": false,
+    "sma_window": 20
+  },
+
+  "versions": {
+    "base": {},
+    "sma_filter_on": {"sma_filter": true}
+  }
+}
