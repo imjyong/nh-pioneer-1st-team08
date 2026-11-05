@@ -15,6 +15,7 @@ class NHClient:
         self.token = None
         self.token_expires = 0
         self.session = requests.Session()  # 연결을 재사용해 매번 새로 맺는 지연을 줄인다.
+        self.request_count = 0
 
     def get_token(self):
         # 만료 5분 전에 갱신한다.
@@ -34,12 +35,14 @@ class NHClient:
 
     def get_websocket_key(self):
         headers = {"Authorization": f"Bearer {self.get_token()}"}
+        self.request_count += 1
         response = self.session.get(f"{self.base_url}/permission/v1/web-socket-key", headers=headers, timeout=10)
         if response.status_code != 200:
             raise RuntimeError(f"웹소켓 키 발급 실패: {response.status_code} {response.text}")
         return response.json()["access_key"]
 
     def _request(self, path, timeout=10, **kwargs):
+        self.request_count += 1
         response = self.session.post(f"{self.base_url}{path}", timeout=timeout, **kwargs)
         if response.status_code != 200:
             raise RuntimeError(f"{path} 실패: {response.status_code} {response.text}")
