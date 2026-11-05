@@ -35,7 +35,7 @@ class OverseasStream:
         if message.get("code") == "pingpong":  # 그대로 돌려보내지 않으면 세션이 끊긴다
             self.ws.send(raw)
             return None
-        if message.get("code") == "RT_FAIL":  # 응답 원문에 계좌번호가 있어 사유만 남긴다
+        if "RT_FAIL" in (message.get("code"), message.get("rt_cd")):  # 응답 원문에 계좌번호가 있어 사유만 남긴다
             raise RuntimeError(f"실시간 구독 실패: {message.get('msg')}")
         header = message.get("header")
         return (header["action_code"], message["body"]) if header else None

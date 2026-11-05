@@ -69,7 +69,7 @@ def reached_breakeven(side, entry_price, initial_stop_price, current_price):
 
 
 def can_enter(params, signal, bar_end, entries, stop_ticks, allowed_side):
-    # 개장 범위가 확정된 다음 봉부터 진입한다.
+    # 개장 전 범위가 확정된 다음 봉부터 진입한다.
     elapsed = minutes_since(params["range_start"], bar_end)
     entry_end = minutes_since(params["range_start"], params["entry_end"])
     return (

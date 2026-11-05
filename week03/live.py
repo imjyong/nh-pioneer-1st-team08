@@ -95,6 +95,8 @@ class LiveTrader:
         self.range_logged = False
         self.last_status = None
         self.last_exit_try = 0
+        self.exit_order = None  # 체결을 아직 확인하지 못한 청산 주문
+        self.exit_order_at = 0
 
     def run(self):
         self.prepare()
@@ -197,6 +199,9 @@ class LiveTrader:
         self.fills[order_no] = (status, float(body["exec_pric"] or 0), body["err_cd"].strip())
         if status == REJECTED:
             self.log.write("ERROR", "주문 응답", 주문번호=order_no, 상태="거부", 오류코드=body["err_cd"].strip())
+            if self.position and order_no == self.position["stop_order"]:
+                self.position["stop_order"] = None
+                self.position["stop_rejected"] = True
         elif self.position and order_no == self.position["stop_order"] and status == FILLED:
             self.record_exit("손절" if not self.position["breakeven"] else "본전", self.fills[order_no][1])
 
@@ -251,6 +256,8 @@ class LiveTrader:
         self.log.write("INFO", "진입 주문", 방향=SIDE_NAME[side], 수량=1, 유형="시장가")
         order_no = self.submit(side, MARKET, None, "진입")
         fill_price = self.wait_fill(order_no) if order_no else None
+        if fill_price is None and self.fills.get(order_no, (None,))[0] != REJECTED:
+            fill_price = self.find_late_fill()
         if fill_price is None:
             self.day_closed = True
             self.log.write("ERROR", "오류", 단계="진입 체결", 주문번호=order_no or "없음", 조치="그날 거래 중단")
@@ -259,17 +266,30 @@ class LiveTrader:
         target_price = calculate_target_price(side, fill_price, stop_price, self.params)
         self.position = {
             "side": side, "entry": fill_price, "first_stop": stop_price, "stop": stop_price,
-            "target": target_price, "stop_order": None, "breakeven": False,
+            "target": target_price, "stop_order": None, "breakeven": False, "stop_rejected": False, "exit_reason": None,
         }
         self.log.write("INFO", "진입 체결", 방향=SIDE_NAME[side], 가격=f"{fill_price:.2f}", 손절=f"{stop_price:.2f}", 익절=f"{target_price:.2f}")
         self.position["stop_order"] = self.submit(-side, STOP, stop_price, "손절")
         if not self.position["stop_order"]:
             self.exit_position("손절 주문 실패")
 
+    def find_late_fill(self):
+        # 체결 확인만 늦은 경우 손절 없는 포지션이 남지 않도록 잔고에서 한 번 더 찾는다.
+        for _ in range(5):
+            position = self.broker.get_position()
+            if position:
+                return position[1]
+            time.sleep(2)
+        return None
+
     def check_exit(self):
         now = datetime.now().strftime("%H%M%S")
         position = self.position
-        if now >= self.params["close_time"]:
+        if position["exit_reason"]:  # 청산을 시작하면 가격이 되돌아와도 끝까지 진행한다
+            self.exit_position(position["exit_reason"])
+        elif position["stop_rejected"]:
+            self.exit_position("손절 주문 거부")
+        elif now >= self.params["close_time"]:
             self.exit_position("시간 청산")
         elif self.last_price is not None and position["side"] * (self.last_price - position["target"]) >= 0:
             self.exit_position("익절")
@@ -280,8 +300,10 @@ class LiveTrader:
             self.move_stop_to_entry()
 
     def move_stop_to_entry(self):
+        if time.time() - self.last_exit_try < 3:
+            return
+        self.last_exit_try = time.time()
         position = self.position
-        position["breakeven"] = True
         self.cancel_stop()
         if not self.position or position["stop_order"]:  # 그사이 손절됐거나 취소에 실패했으면 원래 손절을 유지한다
             return
@@ -290,15 +312,28 @@ class LiveTrader:
             return
         position["stop"] = position["entry"]
         position["stop_order"] = self.submit(-position["side"], STOP, position["entry"], "본전 손절")
-        self.log.write("INFO", "손절 이동", 손절=f"{position['entry']:.2f}", 현재가=f"{self.last_price:.2f}")
         if not position["stop_order"]:
+            self.last_exit_try = 0
             self.exit_position("손절 이동 실패")
+            return
+        position["breakeven"] = True
+        self.log.write("INFO", "손절 이동", 손절=f"{position['entry']:.2f}", 현재가=f"{self.last_price:.2f}")
 
     def exit_position(self, reason):
         # 실패하면 다음 반복에서 3초 간격으로 다시 시도한다.
+        self.position["exit_reason"] = reason
         if time.time() - self.last_exit_try < 3:
             return
         self.last_exit_try = time.time()
+        if self.exit_order:
+            order = self.broker.get_order(self.exit_order)
+            if order and order["status"] == FILLED:
+                self.record_exit(reason, order["price"])
+                return
+            # 처리 중이거나 내역에 아직 없을 때 다시 내면 반대 포지션이 생길 수 있다.
+            if order and order["status"] != REJECTED or not order and time.time() - self.exit_order_at < 15:
+                return
+            self.exit_order = None
         self.cancel_stop()
         if not self.position or self.position["stop_order"]:  # 손절이 살아 있을 때 청산하면 반대 포지션이 생길 수 있다
             return
@@ -307,6 +342,8 @@ class LiveTrader:
             return
         self.log.write("INFO", "청산 주문", 사유=reason, 방향=SIDE_NAME[-self.position["side"]], 수량=1, 유형="시장가")
         order_no = self.submit(-self.position["side"], MARKET, None, "청산")
+        self.exit_order = order_no
+        self.exit_order_at = time.time()
         fill_price = self.wait_fill(order_no) if order_no else None
         if fill_price is None:
             self.log.write("ERROR", "오류", 단계="청산 체결", 주문번호=order_no or "없음", 조치="재시도")
@@ -317,16 +354,22 @@ class LiveTrader:
         position = self.position
         if not position["stop_order"]:
             return
-        stop_order, position["stop_order"] = position["stop_order"], None
+        stop_order = position["stop_order"]
         try:
             self.broker.cancel_order(stop_order, -position["side"], STOP)
             self.log.write("INFO", "손절 주문 취소", 주문번호=stop_order)
         except Exception as error:
             self.log.write("WARNING", "손절 주문 취소 실패", 주문번호=stop_order, 내용=str(error)[:300])
-            position["stop_order"] = stop_order
-        deadline = time.time() + 1
-        while self.position and time.time() < deadline:
-            self.read_stream(0.2)
+        # 취소 요청 중에도 손절이 체결될 수 있어 미체결이 없어져야 취소 완료로 본다.
+        for _ in range(3):
+            deadline = time.time() + 1
+            while self.position and time.time() < deadline:
+                self.read_stream(0.2)
+            if not self.position:
+                return
+            if not self.broker.count_open_orders():
+                position["stop_order"] = None
+                return
 
     def record_stop_filled(self):
         # 취소 직전에 손절이 체결된 경우다. 체결가는 잔고가 비어 있어 주문내역에서 찾는다.
@@ -336,6 +379,7 @@ class LiveTrader:
 
     def record_exit(self, reason, price):
         position, self.position = self.position, None
+        self.exit_order = None
         ticks = round(position["side"] * (price - position["entry"]) / self.tick)
         self.day_ticks += ticks
         self.log.write(
@@ -387,6 +431,9 @@ class LiveTrader:
         self.log.write("INFO", "상태", **fields, 호출=f"{self.client.request_count}회")
         if self.position and not self.broker.get_position():  # 수신이 끊긴 사이 손절된 경우
             self.record_stop_filled()
+        elif self.position and not self.broker.count_open_orders():  # 손절 취소 후 청산이나 재주문을 못 한 경우
+            self.log.write("WARNING", "손절 복구", 손절=f"{self.position['stop']:.2f}")
+            self.position["stop_order"] = self.submit(-self.position["side"], STOP, self.position["stop"], "손절 복구")
 
     def shutdown(self):
         # Ctrl+C로 멈출 때 남은 포지션을 정리하고 끝낸다.
