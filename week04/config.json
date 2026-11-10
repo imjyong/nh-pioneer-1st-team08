@@ -1,0 +1,59 @@
+{
+  "name": "MNQ-MGC spread",
+  "exchange": "FCME",
+  "legs": [
+    {"symbol": "MNQZ26", "name": "Micro E-mini Nasdaq-100 202612", "tick_size": 0.25, "point_value": 2},
+    {"symbol": "MGCZ26", "name": "Micro Gold 202612", "tick_size": 0.1, "point_value": 10}
+  ],
+  "fee_per_contract": 2.0,
+  "selected_version": "base",
+  "selected_session": "contest",
+
+  "sessions": {
+    "contest": {"entry_start": "150000", "entry_end": "173000", "close_time": "175500", "final_check_time": "175700"},
+    "long": {
+      "entry_start": "090500", "entry_end": "233000", "close_time": "235000", "final_check_time": "235500",
+      "max_entries_per_day": 12, "daily_loss": 1200
+    }
+  },
+
+  "strategy": {
+    "window": 60,
+    "entry_z": 2.0,
+    "target_z": 1.0,
+    "stop_z": 3.0,
+    "max_loss": 300,
+    "hold_minutes": 45,
+    "max_entries_per_day": 4,
+    "daily_loss": 600,
+    "cooldown_minutes": 15,
+    "size_tolerance": 0.10,
+    "breakeven": false,
+    "cost_filter": true
+  },
+
+  "live": {
+    "warmup_bars": 200,
+    "fill_timeout_seconds": 10,
+    "max_silence_seconds": 120,
+    "max_leg_silence_seconds": 300,
+    "max_rejects": 3
+  },
+
+  "backtest": {
+    "start_date": "20260930",
+    "split_date": "20261027",
+    "end_date": "20261109",
+    "slippage_ticks": 1
+  },
+
+  "versions": {
+    "base": {},
+    "entry_z_1.8": {"entry_z": 1.8},
+    "entry_z_2.2": {"entry_z": 2.2},
+    "target_z_0.5": {"target_z": 0.5},
+    "stop_z_3.5": {"stop_z": 3.5},
+    "window_120": {"window": 120},
+    "with_breakeven": {"breakeven": true}
+  }
+}
