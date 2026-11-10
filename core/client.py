@@ -7,6 +7,10 @@ import requests
 from core.config import load_env
 
 
+class InvalidToken(RuntimeError):
+    pass
+
+
 class NHClient:
     def __init__(self, base_url, app_key, app_secret):
         self.base_url = base_url
@@ -16,6 +20,7 @@ class NHClient:
         self.token_expires = 0
         self.session = requests.Session()  # 연결을 재사용해 매번 새로 맺는 지연을 줄인다.
         self.request_count = 0
+        self.token_refreshes = 0
 
     def get_token(self):
         # 만료 5분 전에 갱신한다.
@@ -30,13 +35,23 @@ class NHClient:
         return self.token
 
     def post(self, path, payload, timeout=10):
-        headers = {"Authorization": f"Bearer {self.get_token()}"}
-        return self._request(path, json=payload, headers=headers, timeout=timeout)
+        try:
+            headers = {"Authorization": f"Bearer {self.get_token()}"}
+            return self._request(path, json=payload, headers=headers, timeout=timeout)
+        except InvalidToken:
+            # 만료 전 토큰도 EGW023으로 거부될 수 있어 한 번만 다시 발급한다.
+            self.token_expires = 0
+            self.token_refreshes += 1
+            headers = {"Authorization": f"Bearer {self.get_token()}"}
+            return self._request(path, json=payload, headers=headers, timeout=timeout)
 
     def get_websocket_key(self):
         headers = {"Authorization": f"Bearer {self.get_token()}"}
         self.request_count += 1
         response = self.session.get(f"{self.base_url}/permission/v1/web-socket-key", headers=headers, timeout=10)
+        if response.status_code == 401 and "EGW023" in response.text:
+            self.token_expires = 0  # 다음 재접속 때 새 토큰을 받는다
+            self.token_refreshes += 1
         if response.status_code != 200:
             raise RuntimeError(f"웹소켓 키 발급 실패: {response.status_code} {response.text}")
         return response.json()["access_key"]
@@ -44,6 +59,8 @@ class NHClient:
     def _request(self, path, timeout=10, **kwargs):
         self.request_count += 1
         response = self.session.post(f"{self.base_url}{path}", timeout=timeout, **kwargs)
+        if response.status_code == 401 and "EGW023" in response.text:
+            raise InvalidToken(f"{path} 실패: {response.status_code} {response.text}")
         if response.status_code != 200:
             raise RuntimeError(f"{path} 실패: {response.status_code} {response.text}")
         return response.json()
