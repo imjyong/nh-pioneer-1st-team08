@@ -29,13 +29,15 @@ def fetch_chart(client, path, payload, count):
         if isinstance(rows, dict):  # 한 건이면 리스트가 아니라 객체로 온다
             rows = [rows]
 
+        before = len(bars)
         for row in rows:
             bar = to_bar(row)
             bars[(bar.date, bar.time)] = bar
 
         # 응답의 nxt_key를 다음 요청에 넣으면 더 과거 봉을 준다. 값이 바뀌지 않으면 조회를 종료한다.
+        # 해외 분봉은 마지막 페이지 뒤에 첫 페이지를 다시 주므로 새 봉이 없어도 종료한다.
         new_key = (body.get("nxt_key") or "").strip()
-        if not rows or new_key in ("", next_key, "99999999"):
+        if not rows or len(bars) == before or new_key in ("", next_key, "99999999"):
             break
         next_key = new_key
         time.sleep(0.2)  # 시세 API 호출 제한(초당 10건)에 여유를 둔다
