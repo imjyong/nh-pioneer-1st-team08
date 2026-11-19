@@ -1,0 +1,38 @@
+고리,from,to,종류,등급,공개일,비고,근거,공개일_추정
+1,2330.TW,NVDA,공급,상,2001-03-26,GPU 파운드리,https://pr.tsmc.com/english/news/2324,
+1,000660.KS,NVDA,공급,상,2022-09-08,HBM3,https://news.skhynix.com/en/the-story-of-sk-hynixs-hbm-development/,
+1,005930.KS,NVDA,공급,상,2017-08-23,HBM2,https://news.samsung.com/kr (2017-08-23 HBM2 V100),
+1,NVDA,2317.TW,협력,상,2017-05-29,HGX AI 서버,https://nvidianews.nvidia.com/news/nvidia-partners-with-world-s-top-server-manufacturers-to-advance-ai-cloud-computing,
+1,NVDA,2382.TW,협력,상,2017-05-29,HGX AI 서버,https://nvidianews.nvidia.com/news/nvidia-partners-with-world-s-top-server-manufacturers-to-advance-ai-cloud-computing,
+1,NVDA,3231.TW,협력,상,2017-05-29,HGX AI 서버,https://nvidianews.nvidia.com/news/nvidia-partners-with-world-s-top-server-manufacturers-to-advance-ai-cloud-computing,
+1,NVDA,2356.TW,협력,상,2017-05-29,HGX AI 서버,https://nvidianews.nvidia.com/news/nvidia-partners-with-world-s-top-server-manufacturers-to-advance-ai-cloud-computing,
+1,NVDA,2454.TW,협력,상,2023-05-28,자동차 SoC GPU IP,https://nvidianews.nvidia.com/news/?page=159 (2023-05-28),
+1,3711.TW,NVDA,공급,상,2005-01-01,패키징·테스트 (2005년 이전 추정),https://ase.aseglobal.com/wp-content/themes/ase/pdf/201501211549516_en.pdf,추정
+1,4062.T,NVDA,공급,상,2026-10-21,IC 패키지 기판,https://nvidianews.nvidia.com/news/nvidia-and-supply-chain-partners-expand-capacity-to-accelerate-ai-infrastructure-buildout,
+1,6857.T,NVDA,공급,상,2025-10-06,테스트 데이터 인프라,https://www.advantest.com/en/news/2025/2025100602.html,
+2,3407.T,2330.TW,공급,상,2020-12-03,노광 소재,https://pr.tsmc.com/english/news/2762,
+2,6146.T,2330.TW,공급,상,2020-12-03,생산 장비,https://pr.tsmc.com/english/news/2762,
+2,7735.T,2330.TW,공급,상,2011-12-02,세정·도포·현상,https://pr.tsmc.com/english/news/1697,
+2,4063.T,2330.TW,공급,상,2017-12-07,웨이퍼,https://pr.tsmc.com/english/news/1946,
+2,3436.T,2330.TW,공급,상,2017-12-07,웨이퍼,https://pr.tsmc.com/english/news/1946,
+2,6302.T,2330.TW,공급,상,2020-12-03,이온주입,https://pr.tsmc.com/english/news/2762,
+2,8035.T,2330.TW,공급,상,2017-12-07,공정 장비,https://pr.tsmc.com/english/news/1946,
+2,6728.T,2330.TW,공급,상,2020-12-03,진공·증착,https://pr.tsmc.com/english/news/2762,
+2,6920.T,2330.TW,공급,상,2023-12-07,EUV 마스크 검사,https://pr.tsmc.com/english/news/3086,
+2,6857.T,2330.TW,공급,상,2025-11-26,테스트 장비,TSMC 2025 Supply Chain Management Forum 보도자료,
+2,6920.T,2303.TW,공급,상,2021-10-21,마스크 검사,https://www.umc.com/zh-TW/News/press_release/Content/esg/20211021,
+2,8035.T,2303.TW,공급,상,2021-10-21,공정 장비,https://www.umc.com/zh-TW/News/press_release/Content/esg/20211021,
+2,7731.T,2303.TW,공급,상,2021-10-21,노광 장비,https://www.umc.com/zh-TW/News/press_release/Content/esg/20211021,
+2,6857.T,3711.TW,공급,상,2013-01-01,테스터 (2013년 이전 추정),https://ase.aseglobal.com/wp-content/themes/ase/pdf/201501211017144_en.pdf,추정
+2,6146.T,3711.TW,공급,상,2018-04-03,패키징 장비,https://ase.aseglobal.com/wp-content/themes/ase/pdf/20180403180742613516822_en.pdf,
+2,6315.T,3711.TW,공급,상,2013-01-01,몰딩 장비 (2013년 이전 추정),https://ase.aseglobal.com/wp-content/themes/ase/pdf/201501211017144_en.pdf,추정
+2,8035.T,3711.TW,공급,상,2013-01-01,패키징 장비·테스터 (2013년 이전 추정),https://ase.aseglobal.com/wp-content/themes/ase/pdf/201501211017144_en.pdf,추정
+2,6981.T,3711.TW,공급,상,2014-03-07,커패시터,https://ase.aseglobal.com/press-room/ase-honors-suppliers-at-its-annual-supplier-day/,
+2,4203.T,3711.TW,공급,상,2014-03-07,몰딩 컴파운드,https://ase.aseglobal.com/press-room/ase-honors-suppliers-at-its-annual-supplier-day/,
+2,4004.T,3711.TW,공급,상,2023-08-18,패키징 소재,https://www.aseglobal.com/press-room/ase-supplier-day-2023,
+2,042700.KS,3711.TW,공급,상,2015-04-09,조립 장비,https://ase.aseglobal.com/press-room/ase-hosts-annual-supplier-awards-ceremony-in-honor-of-its-network-of-partners/,
+2,011070.KS,3711.TW,공급,상,2015-04-09,패키지 기판,https://ase.aseglobal.com/press-room/ase-hosts-annual-supplier-awards-ceremony-in-honor-of-its-network-of-partners/,
+2,009150.KS,3711.TW,공급,상,2015-04-09,FC-CSP 기판,https://ase.aseglobal.com/press-room/ase-hosts-annual-supplier-awards-ceremony-in-honor-of-its-network-of-partners/,
+2,033160.KQ,3711.TW,공급,상,2020-04-13,본딩 와이어 (품목 추정),https://ase.aseglobal.com/press-room/ase_supplier_awards_2019/,추정
+보조,000660.KS,2330.TW,협력,상,2022-10-27,HBM-CoWoS 기술협력,https://pr.tsmc.com/english/news/2968,
+보조,005930.KS,2330.TW,협력,상,2023-09-27,HBM-3DFabric 협력,https://pr.tsmc.com/english/news/3070,
