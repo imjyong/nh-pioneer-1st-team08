@@ -1,6 +1,6 @@
 # 가설 5 결과: 아시아 AI 종목 정보로 다음 세션의 큰 움직임 예측 (11/19)
 
-관련 파일: 사전 고정 [가설5_변동성ML_사전고정.md](가설5_변동성ML_사전고정.md), 코드 `research/vol_ml.py`, `research/vol_ml_posthoc.py`, 결과 `results/h5_vol_ml_tests.csv`, `results/h5_vol_ml_baseline.csv`, `results/h5_vol_ml_preds.csv`, `results/h5p_*.csv`, 그림 `figs/h5_vol_ml.png`
+관련 파일: 사전 고정 [가설5_큰움직임예측ML_계획.md](가설5_큰움직임예측ML_계획.md), 코드 `research/vol_ml.py`, `research/vol_ml_posthoc.py`, 결과 `results/h5_vol_ml_tests.csv`, `results/h5_vol_ml_baseline.csv`, `results/h5_vol_ml_preds.csv`, `results/h5p_*.csv`, 그림 `figs/h5_vol_ml.png`
 
 가설 4 결과를 본 뒤 추가한 탐색적 분석입니다.
 

@@ -1,6 +1,6 @@
 # 가설 2 결과: 아시아 오전장 지역 차이와 오후 MNQ (11/17, 탐색적 분석)
 
-관련 파일: 사전 고정 [가설2_오전장_사전고정.md](가설2_오전장_사전고정.md), 코드 `research/initial/morning.py`, `research/initial/check_lunch_bars.py`, 결과 `research/initial/results/h2_morning.csv`
+관련 파일: 사전 고정 [가설2_오전장지역차이_오후MNQ_계획.md](가설2_오전장지역차이_오후MNQ_계획.md), 코드 `research/initial/morning.py`, `research/initial/check_lunch_bars.py`, 결과 `research/initial/results/h2_morning.csv`
 
 - 사용 관측일: 466일(2024-06-27 ~ 2026-11-11, 월물 교체 주간, 홀드아웃, 표준화 60일 제외 후). 중단 기준 300일은 넘었습니다.
 - 워크포워드 시험: 214일(63일 블록 4개)
