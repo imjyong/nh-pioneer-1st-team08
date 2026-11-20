@@ -1,4 +1,4 @@
-"""가설 5(문서 7단계): 아시아 AI 종목 정보로 다음 세션의 큰 움직임을 예측한다."""
+"""가설 5: 아시아 AI 종목 정보로 다음 세션의 큰 움직임을 예측한다."""
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,6 +10,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 
 from second_tier_delay import COUNTRY, FIG, RES, load, stock_returns
+
+plt.rcParams["font.family"] = "AppleGothic"
+plt.rcParams["axes.unicode_minus"] = False
 
 END = pd.Timestamp("2026-11-11")
 INIT, STEP, B, BLOCK = 504, 21, 10_000, 10
@@ -228,11 +231,12 @@ def main():
     print(R.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
 
     fig, ax = plt.subplots(figsize=(8, 3.6))
-    lab = [f"{t[:1]}-{m}" for t, m in zip(R["대상"], R["방법"])]
+    name = {"m1": "등락 특징", "m2_hmm": "HMM 국면", "m3_iforest": "이상치 점수", "tree": "결정나무(보조)"}
+    lab = [f"{t[:1]}. {name[m]}" for t, m in zip(R["대상"], R["방법"])]
     ax.barh(lab, R["평균Δlogloss"], color=["#2a4d8f" if k else "#9aa7bf" for k in R["판정대상"]])
     ax.axvline(0, color="gray", lw=0.8)
-    ax.set_xlabel("mean log-loss improvement vs baseline (>0 = better)")
-    ax.set_title("A = QQQ US session, B = TAIEX next day")
+    ax.set_xlabel("기본 모델 대비 평균 log-loss 개선 (0보다 크면 개선)")
+    ax.set_title("A = QQQ 미국 정규장, B = 대만 가권 다음 날")
     fig.tight_layout()
     fig.savefig(FIG / "h5_vol_ml.png", dpi=150)
 

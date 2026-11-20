@@ -1,4 +1,4 @@
-"""가설 4(문서 6단계): 엔비디아 고유 충격 뒤 AI 2차 수혜 기업이 대형주보다 늦게 따라가는지 검정한다.
+"""가설 4: 엔비디아 고유 충격 뒤 AI 2차 수혜 기업이 대형주보다 늦게 따라가는지 검정한다.
 다른 가설 코드가 쓰는 종목 목록, 데이터 읽기, 결과 경로도 여기 있다.
 """
 from itertools import combinations
@@ -7,6 +7,9 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
+plt.rcParams["font.family"] = "AppleGothic"
+plt.rcParams["axes.unicode_minus"] = False
 
 ROOT = Path(__file__).resolve().parents[3]
 DATA = ROOT / "data" / "market" / "week05_yahoo"
@@ -189,10 +192,11 @@ def main():
     ax[0].bar(range(6), path, color="#2a4d8f")
     ax[0].axhline(0, color="gray", lw=0.8)
     ax[0].set_xticks(range(6), ["D"] + [f"D+{h}" for h in range(1, 6)])
-    ax[0].set_title("Daily gamma: (2nd-tier - large) on NVDA shock")
+    ax[0].set_title("날짜별 γ: 엔비디아 충격 뒤 (2차 수혜 - 대형)")
     ax[1].hist(perm, bins=30, color="#9aa7bf")
-    ax[1].axvline(g_obs, color="#c0392b", lw=2, label="actual")
-    ax[1].set_title("Label permutation (180), D+1~D+3")
+    ax[1].axvline(g_obs, color="#c0392b", lw=2, label=f"실제 γ {g_obs:.4f}")
+    ax[1].set_title("같은 나라 라벨 순열 180조합, D+1~D+3")
+    ax[1].set_xlabel("가짜 포트폴리오의 γ")
     ax[1].legend()
     fig.tight_layout()
     fig.savefig(FIG / "h4_second_tier.png", dpi=150)
