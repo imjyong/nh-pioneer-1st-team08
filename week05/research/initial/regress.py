@@ -1,4 +1,4 @@
-"""가설 1(문서 3단계): 사전 고정한 회귀, 순열 검정, 워크포워드를 그대로 돌린다."""
+"""가설 1: 사전 고정한 회귀, 순열 검정, 워크포워드를 그대로 돌린다."""
 from pathlib import Path
 
 import numpy as np
@@ -43,8 +43,8 @@ def features(r):
     z = r / r.rolling(60).std().shift(1)
     supply = z[["대만", "닛케이"]].mean(axis=1)
     hk = z[["항셍", "H주"]].mean(axis=1)
-    f = pd.DataFrame({"갈림": supply - hk, "공통": (supply + hk) / 2})
-    f["|갈림|"], f["|공통|"] = f["갈림"].abs(), f["공통"].abs()
+    f = pd.DataFrame({"지역차": supply - hk, "공통": (supply + hk) / 2})
+    f["|지역차|"], f["|공통|"] = f["지역차"].abs(), f["공통"].abs()
     return f.dropna()
 
 
@@ -78,16 +78,16 @@ def ols_b1(y, X):
 
 def run_test(df, problem):
     if problem == "수익률":
-        ycol, xcols = "y", ["갈림", "us_prev", "공통"]
+        ycol, xcols = "y", ["지역차", "us_prev", "공통"]
     else:
-        ycol, xcols = "|y|", ["|갈림|", "|us_prev|", "|공통|"]
+        ycol, xcols = "|y|", ["|지역차|", "|us_prev|", "|공통|"]
     X = sm.add_constant(df[xcols])
     m = sm.OLS(df[ycol], X).fit(cov_type="HAC", cov_kwds={"maxlags": 5})
     b1, p_hac = m.params[xcols[0]], m.pvalues[xcols[0]]
 
-    # 갈림과 공통 요인의 관계는 유지하고 미국 목표와의 시차만 끊기 위해 두 특징을 함께 원형 이동한다
+    # 지역 차이와 공통 요인의 관계는 유지하고 미국 목표와의 시차만 끊기 위해 두 특징을 함께 원형 이동한다
     rng = np.random.default_rng(SEED)
-    asia_block = df[xcols[0::2]].values  # 갈림·공통 (또는 절댓값)
+    asia_block = df[xcols[0::2]].values  # 지역차, 공통 (또는 절댓값)
     us_part = df[[xcols[1]]].values
     y = df[ycol].values
     n = len(df)
@@ -133,7 +133,7 @@ def main():
     tab = pd.DataFrame(rows)
     tab["BH 유의(10%)"] = multipletests(tab["HAC p"], alpha=0.10, method="fdr_bh")[0]
     tab["BH 유의(10%, 순열 p)"] = multipletests(tab["순열 p"], alpha=0.10, method="fdr_bh")[0]
-    tab.to_csv(OUT / "3_regression_daily.csv", index=False)
+    tab.to_csv(OUT / "h1_regression_daily.csv", index=False)
     pd.set_option("display.width", 200)
     print(tab.round(4).to_string(index=False))
 

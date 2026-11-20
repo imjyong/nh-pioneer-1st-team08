@@ -52,7 +52,7 @@ def main():
     sd = {c: frames[c]["L"].std() for c in frames}
     out = pd.DataFrame([dict(나라=c, n=n, gamma=g_obs[c], L_표준편차=sd[c]) for c in frames]
                        + [dict(나라="평균", n=n, gamma=g_bar, 귀무부트스트랩_단측p=p)])
-    out.to_csv(RES / "6_posthoc_large_to_second.csv", index=False, encoding="utf-8-sig")
+    out.to_csv(RES / "h4_posthoc_large_to_second.csv", index=False, encoding="utf-8-sig")
     print(out.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
     print(f"기간 {common[0].date()} ~ {common[-1].date()}")
 

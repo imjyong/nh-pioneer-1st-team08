@@ -218,10 +218,10 @@ def main():
     main_ = R["판정대상"]
     R.loc[main_, "BH_q"] = bh(R.loc[main_, "p_단측"])
     R["통과"] = main_ & (R["평균Δlogloss"] > 0) & (R["BH_q"] < 0.10)
-    R.to_csv(RES / "7_vol_ml_tests.csv", index=False, encoding="utf-8-sig")
+    R.to_csv(RES / "h5_vol_ml_tests.csv", index=False, encoding="utf-8-sig")
     S = pd.DataFrame(side)
-    S.to_csv(RES / "7_vol_ml_baseline.csv", index=False, encoding="utf-8-sig")
-    pd.concat(preds).to_csv(RES / "7_vol_ml_preds.csv", encoding="utf-8-sig")
+    S.to_csv(RES / "h5_vol_ml_baseline.csv", index=False, encoding="utf-8-sig")
+    pd.concat(preds).to_csv(RES / "h5_vol_ml_preds.csv", encoding="utf-8-sig")
     pd.set_option("display.width", 200)
     print(S.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
     print()
@@ -234,7 +234,7 @@ def main():
     ax.set_xlabel("mean log-loss improvement vs baseline (>0 = better)")
     ax.set_title("A = QQQ US session, B = TAIEX next day")
     fig.tight_layout()
-    fig.savefig(FIG / "7_vol_ml.png", dpi=150)
+    fig.savefig(FIG / "h5_vol_ml.png", dpi=150)
 
 
 if __name__ == "__main__":

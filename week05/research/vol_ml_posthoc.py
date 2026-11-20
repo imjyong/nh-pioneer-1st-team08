@@ -57,7 +57,7 @@ def main():
     D = build("A_QQQ장중")
     q = load("QQQ")
     rq = np.log(q["Close"] / q["Open"])
-    Pr = pd.read_csv(RES / "7_vol_ml_preds.csv", index_col=0, parse_dates=True)
+    Pr = pd.read_csv(RES / "h5_vol_ml_preds.csv", index_col=0, parse_dates=True)
     Pr = Pr[Pr["target"] == "A_QQQ장중"]
     r = rq.reindex(Pr.index).values
     hold = (Pr["m1"].values < TH).astype(float)
@@ -71,7 +71,7 @@ def main():
     }, index=["상승일 수", "하락일 수", "상승일 수익 합", "하락일 손실 합", "일평균 bp", "연변동성"])
     dec.loc["큰 움직임일 수"] = [int(((y == 1) & H).sum()), int(((y == 1) & A).sum())]
     dec.loc["큰 움직임일 평균 bp"] = [r[(y == 1) & H].mean() * 1e4, r[(y == 1) & A].mean() * 1e4]
-    dec.to_csv(RES / "7p_decomposition.csv", encoding="utf-8-sig")
+    dec.to_csv(RES / "h5p_decomposition.csv", encoding="utf-8-sig")
     print("== 보유/회피 분해 ==")
     print(dec.round(4).to_string())
     print(f"하락일 회피율 {(dn & A).sum() / dn.sum():.2f}, 상승일 회피율 {(up & A).sum() / up.sum():.2f}")
@@ -83,7 +83,7 @@ def main():
         rows.append(dict(규칙=f"m1<{t:.2f}" + (" (동결)" if t == TH else ""), 비용="없음", **perf(r, h)))
         rows.append(dict(규칙=f"m1<{t:.2f}" + (" (동결)" if t == TH else ""), 비용="3bp", **perf(r, h, COST)))
     S = pd.DataFrame(rows)
-    S.to_csv(RES / "7p_threshold_cost.csv", index=False, encoding="utf-8-sig")
+    S.to_csv(RES / "h5p_threshold_cost.csv", index=False, encoding="utf-8-sig")
     print("\n== 임계값·비용 ==")
     print(S.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
 
@@ -101,7 +101,7 @@ def main():
         fake.append(max_sharpe(Pf, rq.reindex(Pf.index).values))
     fake = np.array(fake)
     p = (1 + (fake >= obs).sum()) / (1 + len(fake))
-    pd.Series(fake).to_csv(RES / "7p_reality_check.csv", index=False)
+    pd.Series(fake).to_csv(RES / "h5p_reality_check.csv", index=False)
     print(f"\n== reality check (200 원형 이동, 모델 4 × 임계값 4 중 최대 샤프) ==")
     print(f"실제 최대 샤프 {obs:.2f}, 가짜 중앙값 {np.median(fake):.2f}, 95% {np.quantile(fake, .95):.2f}, p = {p:.3f}")
 

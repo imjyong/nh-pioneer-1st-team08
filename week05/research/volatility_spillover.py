@@ -103,7 +103,7 @@ def main():
             P_main = P
     R = pd.DataFrame(rows)
     R["통과"] = (R["구분"] == "본선") & (R["평균Δ"] > 0) & (R["p_단측"] < 0.05)
-    R.to_csv(RES / "8_vol_spill_tests.csv", index=False, encoding="utf-8-sig")
+    R.to_csv(RES / "h6_vol_spill_tests.csv", index=False, encoding="utf-8-sig")
     pd.set_option("display.width", 220)
     print(R.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
 
@@ -119,7 +119,7 @@ def main():
             w[i] = np.clip(med / pv[i], 0.5, 1.5)
         out.append(dict(규칙=name, 평균비중=w.mean(), **_perf(ret * w)))
     T = pd.DataFrame(out)
-    T.to_csv(RES / "8_vol_spill_trading.csv", index=False, encoding="utf-8-sig")
+    T.to_csv(RES / "h6_vol_spill_trading.csv", index=False, encoding="utf-8-sig")
     print()
     print(T.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
 

@@ -1,4 +1,4 @@
-"""초기 탐색(문서 2단계): 야후 일봉을 한국 시간 순서로 맞추고 시장 간 상관과 계층적 군집을 계산한다.
+"""초기 탐색: 야후 일봉을 한국 시간 순서로 맞추고 시장 간 상관과 계층적 군집을 계산한다.
 군집에는 아시아 D와 그보다 먼저 끝난 미국 D-1 수익률을 쓴다.
 """
 from pathlib import Path
@@ -80,8 +80,8 @@ def cluster_plot(cols, name, title):
     return c
 
 
-c_main = cluster_plot(main_cols, "2_cluster_main.png", "같은 창 상관과 계층적 군집 (지수·ETF, 2021-11 ~ 2026-11 일봉)")
-c_aux = cluster_plot(aux_cols, "2_cluster_aux.png", "같은 창 상관과 계층적 군집 (개별 종목 포함, 보조)")
+c_main = cluster_plot(main_cols, "cluster_main.png", "같은 창 상관과 계층적 군집 (지수·ETF, 2021-11 ~ 2026-11 일봉)")
+c_aux = cluster_plot(aux_cols, "cluster_aux.png", "같은 창 상관과 계층적 군집 (개별 종목 포함, 보조)")
 
 print("관측일:", len(panel), panel.index[0].date(), "~", panel.index[-1].date())
 print("\n[같은 창 상관, 지수·ETF]")

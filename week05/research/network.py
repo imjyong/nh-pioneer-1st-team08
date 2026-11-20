@@ -222,7 +222,7 @@ def plots(perm1, r1, perm2, r2, heat, base):
         a.set_xlabel(f"가짜 지도 {len(perm):,}개의 계수")
         a.legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(FIG / "5_permutation.png", dpi=150)
+    fig.savefig(FIG / "h3_permutation.png", dpi=150)
     plt.close(fig)
 
     fig, ax = plt.subplots(figsize=(5.2, 7))
@@ -237,7 +237,7 @@ def plots(perm1, r1, perm2, r2, heat, base):
                 ax.add_patch(plt.Rectangle((j - .5, i - .5), 1, 1, fill=False, ec="black", lw=1.8))
     ax.set_title("공급사 09~10시 → 고객 10~11시 단순 기울기 (기술통계)\n검은 테두리 = 공개된 공급 관계", fontsize=9)
     fig.tight_layout()
-    fig.savefig(FIG / "5_heatmap.png", dpi=150)
+    fig.savefig(FIG / "h3_heatmap.png", dpi=150)
     plt.close(fig)
 
 
@@ -247,8 +247,8 @@ if __name__ == "__main__":
     r2s, perm2, heat, base = test2("지수")
     out += [r1] + r2s
     plots(perm1, r1, perm2, r2s[1], heat, base)
-    heat.to_csv(OUT / "5_heatmap.csv")
-    by_firm.to_frame().join(nodes.set_index("ticker")[["이름", "고리1_업종"]]).to_csv(OUT / "5_test1_by_firm.csv")
+    heat.to_csv(OUT / "h3_heatmap.csv")
+    by_firm.to_frame().join(nodes.set_index("ticker")[["이름", "고리1_업종"]]).to_csv(OUT / "h3_test1_by_firm.csv")
     r1b, _, _ = test1("바스켓")
     r2b, _, _, _ = test2("바스켓")
     out += [r1b] + r2b
@@ -256,6 +256,6 @@ if __name__ == "__main__":
     main = tab[(tab["대만 시장 조정"] == "지수") & (tab["귀무분포"] != "공급사 라벨 순열(민감도)")]
     tab["BH q(본선 2개)"] = np.nan
     tab.loc[main.index, "BH q(본선 2개)"] = multipletests(main["순열 p"], method="fdr_bh")[1]
-    tab.to_csv(OUT / "5_network_tests.csv", index=False)
+    tab.to_csv(OUT / "h3_network_tests.csv", index=False)
     pd.set_option("display.width", 250)
     print(tab.round(4).to_string(index=False))

@@ -1,4 +1,4 @@
-"""가설 2(문서 4단계): 아시아 오전장 갈림이 오후 MNQ 수익률과 변동성을 예측하는지 검정한다. 정의는 4단계_오전장_사전고정_1117.md 그대로."""
+"""가설 2: 아시아 오전장 지역 차이가 오후 MNQ 수익률과 변동성을 예측하는지 검정한다. 정의는 가설2_오전장_사전고정.md 그대로."""
 from pathlib import Path
 
 import numpy as np
@@ -39,8 +39,8 @@ def morning_returns():
 def features(r):
     z = r / r.rolling(60).std().shift(1)
     sup, hk = z[["대만", "닛케이"]].mean(axis=1), z[["항셍", "H주"]].mean(axis=1)
-    f = pd.DataFrame({"갈림": sup - hk, "공통": (sup + hk) / 2}).dropna()
-    f["|갈림|"], f["|공통|"] = f["갈림"].abs(), f["공통"].abs()
+    f = pd.DataFrame({"지역차": sup - hk, "공통": (sup + hk) / 2}).dropna()
+    f["|지역차|"], f["|공통|"] = f["지역차"].abs(), f["공통"].abs()
     return f
 
 
@@ -129,10 +129,10 @@ def main():
         for problem in ["수익률", "변동성"]:
             d = df.copy()
             if problem == "수익률":
-                ycol, xcols = target, ["갈림", "통제", "공통"]
+                ycol, xcols = target, ["지역차", "통제", "공통"]
             else:
                 d["|y|"], d["|통제|"] = d[target].abs(), d["통제"].abs()
-                ycol, xcols = "|y|", ["|갈림|", "|통제|", "|공통|"]
+                ycol, xcols = "|y|", ["|지역차|", "|통제|", "|공통|"]
             fit = hac(d[ycol], d[xcols])
             t = fit.tvalues[xcols[0]]
             ps = {b: boot_p(d[ycol], d[xcols], d[xcols[1:]], t, b, rng) for b in (10, 5, 20)}
@@ -153,7 +153,7 @@ def main():
     tab["BH 유의(10%)"] = multipletests(tab["HAC p"], alpha=0.10, method="fdr_bh")[0]
     ok_wf = tab["워크포워드"] > 0
     tab["후보 인정"] = ok_wf & (tab["부트 p(10일)"] < 0.10)
-    tab.to_csv(OUT / "4_morning.csv", index=False)
+    tab.to_csv(OUT / "h2_morning.csv", index=False)
     pd.set_option("display.width", 220)
     print(tab.round(4).to_string(index=False))
 

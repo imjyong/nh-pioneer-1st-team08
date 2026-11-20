@@ -1,4 +1,4 @@
-"""가설 1의 MNQ 분석(문서 3단계): 장중 갈림 점수와 MNQ=F의 한국 18:00 이후 수익률 간 관계를 검정한다."""
+"""가설 1의 MNQ 분석: 장중 지역 차이 점수와 MNQ=F의 한국 18:00 이후 수익률 간 관계를 검정한다."""
 from pathlib import Path
 
 import numpy as np
@@ -67,10 +67,10 @@ for target in ["실행 18→24", "연구 18→뉴욕16시"]:
     for problem in ["수익률", "변동성"]:
         d2 = df.dropna(subset=[target, "us_prev"]).copy()
         if problem == "수익률":
-            y, xcols = d2[target], ["갈림", "us_prev", "공통"]
+            y, xcols = d2[target], ["지역차", "us_prev", "공통"]
         else:
             d2["|us_prev|"] = d2["us_prev"].abs()
-            y, xcols = d2[target].abs(), ["|갈림|", "|us_prev|", "|공통|"]
+            y, xcols = d2[target].abs(), ["|지역차|", "|us_prev|", "|공통|"]
         mdl = sm.OLS(y, sm.add_constant(d2[xcols])).fit(cov_type="HAC", cov_kwds={"maxlags": 5})
         b1 = mdl.params[xcols[0]]
         rng = np.random.default_rng(SEED)
@@ -85,6 +85,6 @@ for target in ["실행 18→24", "연구 18→뉴욕16시"]:
 tab = pd.DataFrame(res)
 tab["BH 유의(10%)"] = multipletests(tab["HAC p"], alpha=0.10, method="fdr_bh")[0]
 tab["BH 유의(10%, 순열 p)"] = multipletests(tab["순열 p"], alpha=0.10, method="fdr_bh")[0]
-tab.to_csv(OUT / "3_regression_mnq.csv", index=False)
+tab.to_csv(OUT / "h1_regression_mnq.csv", index=False)
 print(f"롤오버로 뺀 날 포함 후보 {len(feat[(feat.index >= '2024-06-27') & (feat.index < HOLDOUT_FROM)])}일 → 사용 {len(df)}일")
 print(tab.round(4).to_string(index=False))

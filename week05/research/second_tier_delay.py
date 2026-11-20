@@ -175,8 +175,8 @@ def main():
                      boot_p_단측=(perm >= g_obs - 1e-12).mean(), 블록=np.nan, NW_p_단측=np.nan))
 
     out = pd.DataFrame(rows)
-    out.to_csv(RES / "6_second_tier_tests.csv", index=False, encoding="utf-8-sig")
-    pd.Series(perm).to_csv(RES / "6_label_perm_gammas.csv", index=False)
+    out.to_csv(RES / "h4_second_tier_tests.csv", index=False, encoding="utf-8-sig")
+    pd.Series(perm).to_csv(RES / "h4_label_perm_gammas.csv", index=False)
     print(out.to_string(index=False, float_format=lambda v: f"{v:.4f}"))
     print(f"\n표본 t: {N.index[0].date()} ~ {N.index[-1].date()}, N 표준편차 {N.std():.4f}")
 
@@ -195,8 +195,8 @@ def main():
     ax[1].set_title("Label permutation (180), D+1~D+3")
     ax[1].legend()
     fig.tight_layout()
-    fig.savefig(FIG / "6_second_tier.png", dpi=150)
-    pd.Series(path, index=["D"] + [f"D+{h}" for h in range(1, 6)]).to_csv(RES / "6_gamma_path.csv")
+    fig.savefig(FIG / "h4_second_tier.png", dpi=150)
+    pd.Series(path, index=["D"] + [f"D+{h}" for h in range(1, 6)]).to_csv(RES / "h4_gamma_path.csv")
 
 
 if __name__ == "__main__":
