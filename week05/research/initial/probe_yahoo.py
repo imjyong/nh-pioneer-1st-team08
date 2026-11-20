@@ -2,7 +2,7 @@
 from pathlib import Path
 import yfinance as yf
 
-OUT = Path(__file__).resolve().parents[3] / "data" / "market" / "week05_yahoo"
+OUT = Path(__file__).resolve().parents[4] / "data" / "market" / "week05_yahoo"
 TICKERS = {
     "2330.TW": "TSMC", "6857.T": "어드밴테스트", "8035.T": "도쿄일렉트론", "4062.T": "이비덴",
     "9988.HK": "알리바바", "0700.HK": "텐센트", "0981.HK": "SMIC", "^HSTECH": "항셍테크 지수", "3033.HK": "항셍테크 ETF",

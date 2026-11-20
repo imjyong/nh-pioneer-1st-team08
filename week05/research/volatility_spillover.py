@@ -1,8 +1,8 @@
-"""8단계: 아시아 AI 종목 변동폭 → 그날 밤 QQQ 정규장 변동폭. 사전 고정: 8단계_변동성전이_사전고정_1119.md"""
+"""가설 6(문서 8단계): 아시아 AI 종목 변동폭이 그날 밤 QQQ 변동폭 예측을 개선하는지 검정한다."""
 import numpy as np
 import pandas as pd
 
-from second_tier import COUNTRY, RES, load
+from second_tier_delay import COUNTRY, RES, load
 from vol_ml import END, INIT, STEP
 
 B, BLOCK = 10_000, 10
@@ -65,6 +65,7 @@ def walk(D, extra):
 
 
 def boot_p(delta):
+    """평균 MSE 개선이 0이라는 귀무가설 아래, 중심화한 손실 차이를 원형 블록으로 재표집해 단측 p값을 구한다."""
     n, obs = len(delta), delta.mean()
     e = delta - obs
     nb = int(np.ceil(n / BLOCK))

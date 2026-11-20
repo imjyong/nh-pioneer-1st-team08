@@ -1,22 +1,16 @@
-"""5주차 연구용 야후 데이터를 다시 받는다. 원본은 data/market/week05_yahoo/에만 둔다 (저장소에 올리지 않음).
-
-- 일봉: auto_adjust=True(수정주가), 최근 5년
-- 60분봉: MNQ=F, QQQ, 대만·닛케이·항셍·H주, auto_adjust=True, 최근 730일 (야후 60분봉 한도)
-- 30분봉: 대만·닛케이·항셍·H주 최근 60일 (점심 봉 구조 확인용)
-- 시각: 야후 일봉은 거래소 현지 날짜, 60분봉은 UTC
-- 받은 뒤 fix_yahoo.py를 실행해 분할 오류를 고친다
-- 60분봉은 받는 날 기준 최근 730일이라, 다시 받으면 분석(11/17~18 수신) 때와 시작일이 달라진다
+"""5주차 연구용 야후 일봉·60분봉·30분봉을 data/market/week05_yahoo/에 저장한다 (저장소에 올리지 않음).
+60분봉은 UTC·최근 730일 기준이며, 수집 뒤 fix_yahoo.py로 가격 불연속을 보정한다.
 """
 from pathlib import Path
 
 import pandas as pd
 import yfinance as yf
 
-OUT = Path(__file__).resolve().parents[2] / "data" / "market" / "week05_yahoo"
+OUT = Path(__file__).resolve().parents[3] / "data" / "market" / "week05_yahoo"
 OUT.mkdir(parents=True, exist_ok=True)
 
 HERE = Path(__file__).resolve().parent
-NODES = [t for t in pd.read_csv(HERE / "map" / "nodes.csv", dtype=str)["ticker"] if t != "NVDA"]
+NODES = [t for t in pd.read_csv(HERE.parent / "research" / "map" / "nodes.csv", dtype=str)["ticker"] if t != "NVDA"]
 AI13 = ["083450.KQ", "007660.KS", "000660.KS", "005930.KS", "6787.T", "5805.T", "8035.T", "6857.T",
         "2421.TW", "6412.TW", "2368.TW", "6213.TW", "2330.TW"]
 

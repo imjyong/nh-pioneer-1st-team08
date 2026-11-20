@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-RAW = Path(__file__).resolve().parents[3] / "data" / "market" / "week05_yahoo"
+RAW = Path(__file__).resolve().parents[4] / "data" / "market" / "week05_yahoo"
 
 
 def rd(t, iv):

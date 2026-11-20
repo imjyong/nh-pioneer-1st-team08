@@ -1,4 +1,4 @@
-"""3단계 (거래 상품 기준): 장중 갈림 점수 → MNQ=F 한국 18:00 이후 수익률. 사전 고정 수정 절 그대로."""
+"""가설 1의 MNQ 분석(문서 3단계): 장중 갈림 점수와 MNQ=F의 한국 18:00 이후 수익률 간 관계를 검정한다."""
 from pathlib import Path
 
 import numpy as np
@@ -49,7 +49,7 @@ for d in feat.index:
     exit_exec = exit_exec.tz_convert("UTC")
     ny_close = pd.Timestamp(d.date()).tz_localize(NY).replace(hour=16).tz_convert("UTC")
     prev_ny = pd.Timestamp((d - pd.Timedelta(days=1)).date()).tz_localize(NY).replace(hour=16).tz_convert("UTC")
-    # 전날 뉴욕 16:00 봉이 없으면(주말·휴장) 더 앞으로
+    # 직전 뉴욕 16:00 가격을 찾기 위해 주말·휴장일에는 최대 4일 전까지 거슬러 간다
     for back in range(1, 5):
         cand = pd.Timestamp((d - pd.Timedelta(days=back)).date()).tz_localize(NY).replace(hour=16).tz_convert("UTC")
         if not np.isnan(price_at(cand)):

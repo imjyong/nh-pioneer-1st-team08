@@ -1,11 +1,16 @@
 """야후 60분봉 마지막 봉 종가와 일봉 종가를 AI 13종목 최근 40일로 비교한다.
 운영 신호에서 최신 종가가 비었을 때 60분봉으로 대신할 수 있는지 보려고 만들었다. 결과: results/check_close_60m.csv
 """
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "research"))  # research의 종목 목록과 결과 경로를 쓴다
+
 import numpy as np
 import pandas as pd
 import yfinance as yf
 
-from second_tier import COUNTRY, RES
+from second_tier_delay import COUNTRY, RES
 
 rows = []
 for g in COUNTRY.values():

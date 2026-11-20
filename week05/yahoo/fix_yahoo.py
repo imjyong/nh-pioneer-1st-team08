@@ -6,13 +6,13 @@
 - 1306.T 60분봉: 2026-03-30 분할 전 봉이 수정되지 않음 → 그 전 가격 ÷10, 거래량 ×10
   주의: 일봉은 분할 후 기준을 과거로, 60분봉은 분할 후 기준으로 맞췄다. 수익률 분석에는 문제없지만 두 파일의 가격 수준을 직접 비교하면 안 된다
 - 083450.KQ 일봉: 2024-06-17에 전날 대비 약 1/2로 불연속 → 그 전 가격 ÷2, 거래량 ×2
-  **추측에 기반한 정정**: 기업행사(분할·무상증자) 날짜와 배율을 공식 자료로 확인하지 못했다. 가격 연속성만 회복시킨 것이다
+  공식 기업행사 자료를 확인하지 못해 가격 연속성만 복원한 보정이다
 """
 from pathlib import Path
 
 import pandas as pd
 
-DATA = Path(__file__).resolve().parents[2] / "data" / "market" / "week05_yahoo"
+DATA = Path(__file__).resolve().parents[3] / "data" / "market" / "week05_yahoo"
 PX = ["Open", "High", "Low", "Close"]
 
 

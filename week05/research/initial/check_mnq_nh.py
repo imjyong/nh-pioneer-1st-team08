@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 nh = pd.read_csv(ROOT / "data/market/MNQZ26_1min.csv", dtype={"date": str, "time": str})
 nh["ts"] = pd.to_datetime(nh["date"] + nh["time"].str.zfill(6), format="%Y%m%d%H%M%S").dt.tz_localize("Asia/Seoul")
 nh = nh.set_index("ts")["open"]  # 그 분 봉의 시가 = 그 시각 가격

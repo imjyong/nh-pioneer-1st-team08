@@ -1,13 +1,10 @@
-"""7단계 사후 응용: 방법 1 확률 < 0.30인 날만 QQQ 정규장을 보유한다. 결과를 본 뒤 만든 규칙을 추가로 점검한다.
-보유일과 회피일을 나누고, 문턱 민감도(0.30 동결, 나머지는 표로만)와 거래비용을 확인한다.
-reality check는 아시아 특징을 원형으로 밀어 가짜 표본을 만들고, 검토했던 모델·문턱 조합 중 최대 샤프의 분포와 비교한다.
-"""
+"""가설 5 결과 뒤 만든 보유 규칙을 점검한다. 보유일·비보유일, 임계값 민감도, 거래비용을 비교하고 날짜 원형 이동으로 reality check를 한다."""
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 from sklearn.tree import DecisionTreeClassifier
 
-from second_tier import RES, load
+from second_tier_delay import RES, load
 from vol_ml import BASE, INIT, M1, STEP, build, logit
 
 TH = 0.30
@@ -34,7 +31,7 @@ def perf(r, hold, cost=0.0):
 
 
 def fast_walk(D):
-    """HMM 제외: base, m1, tree, iforest 예측."""
+    """HMM을 뺀 네 모델(base, m1, tree, iforest)로 워크포워드 예측을 만든다."""
     raw = [c for c in D.columns if c.startswith("r_")]
     y, n = D["y"].values, len(D)
     P = {k: np.full(n, np.nan) for k in ["base", "m1", "tree", "m3_iforest"]}
@@ -66,7 +63,6 @@ def main():
     hold = (Pr["m1"].values < TH).astype(float)
     y = Pr["y"].values
 
-    # 보유·회피 분해
     up, dn = r > 0, r < 0
     H, A = hold == 1, hold == 0
     dec = pd.DataFrame({
@@ -80,7 +76,6 @@ def main():
     print(dec.round(4).to_string())
     print(f"하락일 회피율 {(dn & A).sum() / dn.sum():.2f}, 상승일 회피율 {(up & A).sum() / up.sum():.2f}")
 
-    # 문턱 민감도와 비용
     rows = [dict(규칙="매일 보유", 비용="없음", **perf(r, np.ones_like(r)))]
     rows.append(dict(규칙="매일 보유", 비용="3bp", **perf(r, np.ones_like(r), COST)))
     for t in THS:
@@ -89,10 +84,10 @@ def main():
         rows.append(dict(규칙=f"m1<{t:.2f}" + (" (동결)" if t == TH else ""), 비용="3bp", **perf(r, h, COST)))
     S = pd.DataFrame(rows)
     S.to_csv(RES / "7p_threshold_cost.csv", index=False, encoding="utf-8-sig")
-    print("\n== 문턱·비용 ==")
+    print("\n== 임계값·비용 ==")
     print(S.to_string(index=False, float_format=lambda v: f"{v:.3f}"))
 
-    # reality check
+    # 아시아 특징만 원형 이동하고 모델·임계값 선택을 매번 반복해, 선택 편향을 귀무분포에 포함한다
     obs_P = Pr[["base", "m1", "tree", "m3_iforest"]]
     obs = max_sharpe(obs_P, r)
     asia = [c for c in D.columns if c.startswith("r_")] + M1
@@ -107,7 +102,7 @@ def main():
     fake = np.array(fake)
     p = (1 + (fake >= obs).sum()) / (1 + len(fake))
     pd.Series(fake).to_csv(RES / "7p_reality_check.csv", index=False)
-    print(f"\n== reality check (200 원형 이동, 모델 4 × 문턱 4 중 최대 샤프) ==")
+    print(f"\n== reality check (200 원형 이동, 모델 4 × 임계값 4 중 최대 샤프) ==")
     print(f"실제 최대 샤프 {obs:.2f}, 가짜 중앙값 {np.median(fake):.2f}, 95% {np.quantile(fake, .95):.2f}, p = {p:.3f}")
 
 

@@ -1,9 +1,5 @@
-"""2단계 보완 분석
-
-- 공통 관측일(다섯 지수가 모두 있는 날)에서만 상관·군집·부트스트랩
-- 3033.HK 시가 품질 점검 (시가 = 직전 종가인데 항셍은 갭이 있는 날)
-- 날짜 iid 부트스트랩 + 5거래일 블록 부트스트랩
-- 오늘처럼 장이 끝나지 않은 날은 뺀다
+"""초기 탐색 보완(문서 2단계): 공통 관측일의 군집 안정성과 3033.HK 시가 품질을 점검한다.
+날짜 iid와 5거래일 블록 부트스트랩을 비교하고, 수집 중이던 11/17은 제외한다.
 """
 from pathlib import Path
 
@@ -12,7 +8,7 @@ import pandas as pd
 from scipy.cluster.hierarchy import fcluster, linkage
 from scipy.spatial.distance import squareform
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 RAW = ROOT / "data" / "market" / "week05_yahoo"
 CUTOFF = "2026-11-16"  # 이 날짜까지만 사용 (11/17 아시아 장은 수집 시점에 진행 중)
 ASIA = {"^TWII": "대만", "^N225": "닛케이", "3033.HK": "항셍테크", "^HSI": "항셍", "^HSCE": "H주"}

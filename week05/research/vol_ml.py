@@ -1,6 +1,4 @@
-"""7단계(탐색적 5번째): 아시아 AI 종목 정보 → 다음 세션 큰 움직임 예측.
-사전 고정: 7단계_변동성ML_사전고정_1119.md
-"""
+"""가설 5(문서 7단계): 아시아 AI 종목 정보로 다음 세션의 큰 움직임을 예측한다."""
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -11,7 +9,7 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 
-from second_tier import COUNTRY, FIG, RES, load, stock_returns
+from second_tier_delay import COUNTRY, FIG, RES, load, stock_returns
 
 END = pd.Timestamp("2026-11-11")
 INIT, STEP, B, BLOCK = 504, 21, 10_000, 10
@@ -22,7 +20,6 @@ M1 = ["disp", "breadth_dev", "ctry_gap", "ai_abs"]
 HMM_IN = ["ai_mean", "disp"]
 
 
-# 특징
 def asia_features():
     cals = {c: load(g["cal"]).index for c, g in COUNTRY.items()}
     cals = {c: x[x <= END] for c, x in cals.items()}
@@ -47,7 +44,7 @@ def asia_features():
 
 
 def series_feats(s):
-    """대상 값 s의 각 날짜 x에서: 라벨 기준(직전 60개 70%), 기본 특징(직전 값들)."""
+    """대상 값 s의 날짜마다 라벨 기준값(직전 60개의 70% 분위)과 기본 특징(직전 값)을 구한다."""
     p = s.shift(1)
     return pd.DataFrame({
         "v": s,
@@ -65,7 +62,7 @@ def build(target):
         sf = series_feats(s[s.index <= END])
         tdate = pd.Series(F.index, index=F.index)  # 같은 날짜의 미국 정규장
         ok = tdate.isin(sf.index)
-    else:  # B_대만다음날
+    else:
         tw = load("^TWII")["Close"]
         tw = tw[tw.index <= END]
         s = np.log(tw).diff().abs()
@@ -83,7 +80,6 @@ def build(target):
     return D
 
 
-# HMM (대각 가우시안, numpy)
 def _emis(X, mu, var):
     ll = -0.5 * (((X[:, None, :] - mu[None]) ** 2) / var[None] + np.log(2 * np.pi * var[None])).sum(-1)
     m = ll.max(axis=1, keepdims=True)
@@ -102,6 +98,7 @@ def _forward(Bm, pi, A):
 
 
 def fit_hmm(X, K=3, iters=100):
+    """대각 공분산을 쓰는 3상태 가우시안 HMM을 EM으로 추정한다."""
     T, d = X.shape
     order = np.argsort(np.abs(X).sum(axis=1))
     groups = np.array_split(order, K)
@@ -129,19 +126,20 @@ def fit_hmm(X, K=3, iters=100):
 
 
 def hmm_filtered(Xtr, Xall):
+    """학습 구간에서 HMM을 추정하고, 각 시점까지의 정보만 반영한 필터링 확률을 계산한다."""
     m, s = Xtr.mean(0), Xtr.std(0)
     pi, A, mu, var = fit_hmm((Xtr - m) / s)
     al, _ = _forward(_emis((Xall - m) / s, mu, var), pi, A)
-    order = np.argsort(var[:, 0])  # 평균 수익률 분산 작은 → 큰 순
-    return al[:, order][:, 1:]     # 가장 조용한 상태 제외
+    order = np.argsort(var[:, 0])  # 재학습마다 상태 번호가 바뀌지 않도록 평균 수익률 분산 순으로 정렬한다
+    return al[:, order][:, 1:]     # 세 확률의 합이 1이라 가장 조용한 상태를 기준으로 두고 나머지 두 개만 쓴다
 
 
-# 워크포워드
 def logit():
     return make_pipeline(StandardScaler(), LogisticRegression(C=1.0, max_iter=2000))
 
 
 def walk(D):
+    """21일 단위 확장형 워크포워드를 수행한다. 모든 모델(로지스틱, HMM, Isolation Forest)은 각 시험 구간 이전 자료로만 추정한다."""
     raw_cols = [c for c in D.columns if c.startswith("r_")]
     y = D["y"].values
     n = len(D)
@@ -177,6 +175,7 @@ def logloss(p, y):
 
 
 def boot_p(delta):
+    """평균 개선이 0이라는 귀무가설 아래, 중심화한 손실 차이를 원형 블록으로 재표집해 단측 p값을 구한다."""
     delta = np.asarray(delta)
     n, obs = len(delta), delta.mean()
     e = delta - obs

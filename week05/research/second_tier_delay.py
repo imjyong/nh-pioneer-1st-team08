@@ -1,5 +1,5 @@
-"""6단계: 엔비디아 고유 충격 뒤 아시아 AI 인프라 2차 노출 기업이 대형주보다 늦게 따라가는가.
-사전 고정: 6단계_2차수혜_사전고정_1118.md
+"""가설 4(문서 6단계): 엔비디아 고유 충격 뒤 AI 2차 수혜 기업이 대형주보다 늦게 따라가는지 검정한다.
+다른 가설 코드가 쓰는 종목 목록, 데이터 읽기, 결과 경로도 여기 있다.
 """
 from itertools import combinations
 from pathlib import Path
@@ -8,10 +8,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[3]
 DATA = ROOT / "data" / "market" / "week05_yahoo"
 HERE = Path(__file__).resolve().parent
-RES, FIG = HERE / "results", HERE / "figs"
+RES, FIG = HERE.parent / "results", HERE.parent / "figs"
 RES.mkdir(exist_ok=True)
 FIG.mkdir(exist_ok=True)
 
@@ -37,14 +37,14 @@ def load(ticker):
 
 
 def stock_returns(ticker, cal):
-    """현지 거래일 달력 위 일 로그수익률. 거래량 0인 날은 종가 결측."""
+    """현지 거래일 기준 일 로그수익률을 구한다. 거래량이 0인 날은 종가를 결측으로 둔다."""
     df = load(ticker).reindex(cal)
     close = df["Close"].where(df["Volume"] > 0) if not ticker.startswith("^") else df["Close"]
     return np.log(close).diff()
 
 
 def rolling_beta(y, x, win=120):
-    """t−win ~ t−1 로 추정한 β (당일 제외, 둘 다 있는 날만)."""
+    """t−win ~ t−1 자료로 β를 추정한다. 당일은 넣지 않고, 두 값이 모두 있는 날만 쓴다."""
     out = pd.Series(np.nan, index=y.index)
     both = pd.concat([y, x], axis=1).dropna()
     yy, xx = both.iloc[:, 0].values, both.iloc[:, 1].values
@@ -62,7 +62,7 @@ def nvda_signal():
 
 
 def country_paths(c, sec, large, resid=False):
-    """나라 c에서 (2차 − 대형) 포트폴리오 일 수익률 시계열 (현지 달력)."""
+    """나라 c의 (2차 − 대형) 포트폴리오 일 수익률을 현지 거래일 기준으로 구한다."""
     cal = load(COUNTRY[c]["cal"]).index
     cal = cal[(cal >= START - pd.Timedelta(days=400)) & (cal <= END)]
     rets = {}
@@ -77,7 +77,7 @@ def country_paths(c, sec, large, resid=False):
 
 
 def align(signal, diff, h0, h1):
-    """미국 t → 현지 D = t 다음 첫 현지 거래일. D+h0 ~ D+h1 누적 (현지 거래일 기준)."""
+    """미국 t 다음 첫 현지 거래일을 D로 두고, D+h0 ~ D+h1 현지 거래일 수익률을 누적한다."""
     cal = diff.index
     pos = cal.searchsorted(signal.index, side="right")  # t보다 엄격히 뒤의 첫 현지 거래일
     out = pd.Series(np.nan, index=signal.index)

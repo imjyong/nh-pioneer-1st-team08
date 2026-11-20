@@ -1,4 +1,4 @@
-"""공급망 지도 전략: 5단계_공급망지도_사전고정_1118.md의 검정 1·2와 민감도 분석."""
+"""가설 3(문서 5단계): 공개 공급망 지도를 따라 가격이 시간차를 두고 퍼지는지 검정하고 민감도를 본다."""
 import warnings
 from pathlib import Path
 
@@ -12,7 +12,7 @@ from statsmodels.stats.multitest import multipletests
 
 HERE = Path(__file__).resolve().parent
 RAW = HERE.parents[2] / "data" / "market" / "week05_yahoo"
-OUT, FIG = HERE / "results", HERE / "figs"
+OUT, FIG = HERE.parent / "results", HERE.parent / "figs"
 OUT.mkdir(exist_ok=True)
 FIG.mkdir(exist_ok=True)
 plt.rcParams["font.family"] = "AppleGothic"
@@ -32,7 +32,7 @@ NAME = dict(zip(nodes["ticker"], nodes["이름"]))
 
 
 def first_hour(ticker, market):
-    """야후 60분봉의 그날 첫 봉 시가·종가와 전날 마지막 봉 종가."""
+    """야후 60분봉에서 그날 첫 봉 시가·종가와 전날 마지막 봉 종가를 구한다."""
     df = pd.read_csv(RAW / f"{ticker.replace('^', '_')}_60m_adj.csv", index_col=0)
     df.index = pd.to_datetime(df.index, utc=True).tz_convert("Asia/Seoul")
     df["date"] = df.index.normalize().tz_localize(None)

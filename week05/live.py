@@ -1,10 +1,5 @@
-"""동결한 아시아 AI 등락 특징 신호로 MNQ 모의 주문 파이프라인을 실행한다.
-
-검증된 전략의 실거래가 아니라, 신호 계산부터 주문·체결·청산까지 확인하는 운영 실험이다.
-- 신호: signal_log.csv의 그날 실시간 행 (확률 < 0.30이면 매수, 아니면 거래 안 함)
-- 연구상 보유 구간은 미국 정규장 시가부터 종가까지지만, 해외 모의 서버가 24:00에 닫혀 23:30에 진입해 23:45에 청산한다
-- 주문 안전 규칙: 주문번호를 받은 주문은 체결·거부·취소가 확정될 때까지 추적한다. 확정되지 않으면 취소하고,
-  실제 포지션과 미체결을 다시 조회한 뒤에만 다음 주문을 낸다. 청산 방향은 항상 실제 포지션의 반대다
+"""signal_log.csv의 동결 신호를 읽어 MNQ 모의 주문을 실행한다.
+서버 운영시간 때문에 23:30~23:45만 보유하며, 다음 주문 전에는 주문 상태와 실제 잔고를 확인한다.
 """
 
 import argparse
@@ -23,7 +18,7 @@ from week03.stream import OverseasStream
 RESULTS = Path(__file__).with_name("results")
 SYMBOL, TICK, TICK_VALUE = "MNQZ26", 0.25, 0.5
 ENTRY, ENTRY_DEADLINE, EXIT = "233000", "233500", "234500"
-LAST_NEW_ORDER, HARD_CUTOFF = "235230", "235300"  # 이후에는 새 주문을 내지 않고, 컷오프 뒤에는 조회·취소도 멈춘다
+LAST_NEW_ORDER, HARD_CUTOFF = "235230", "235300"  # 이후에는 새 주문을 내지 않고, 컷오프 뒤에는 개별 주문의 조회·취소 추적을 멈춘다
 FRESH_SECONDS = 10  # 이보다 오래된 체결가뿐이면 진입하지 않는다
 
 logger = logging.getLogger("week05")
@@ -70,7 +65,6 @@ class Runner:
         self.fills = {}         # 주문번호: (상태, 체결가)
         self.last_fill = None
 
-    # 스트림
     def connect(self):
         try:
             self.stream.connect()
@@ -94,7 +88,7 @@ class Runner:
         code, body = msg
         if code == "FA" and "last_pric" in body:
             self.last, self.last_at = float(body["last_pric"]), time.time()
-            if not self.quote_keys_logged:  # 호가 필드가 있는지 한 번만 기록 (시세 메시지라 계좌 정보 없음)
+            if not self.quote_keys_logged:  # 시세 메시지의 필드 목록은 처음 한 번만 기록한다 (계좌 정보 없음)
                 self.quote_keys_logged = True
                 self.log.write("INFO", "시세 필드", 키=",".join(sorted(body.keys())))
         elif code == "O1" and "ord_no" in body:  # REST와 같게 앞자리 0을 뺀 번호로 맞춘다
@@ -104,13 +98,11 @@ class Runner:
         while now_hms() < hhmmss:
             self.pump(1)
 
-    # 계좌
     def snapshot(self):
         return self.broker.get_position(), self.broker.count_open_orders()
 
-    # 주문
     def resolve(self, order_no, side):
-        """주문이 체결·거부·취소로 확정될 때까지 추적한다. (상태, 체결가) 반환. 상태: 체결/거부/취소/불명."""
+        """주문이 체결·거부·취소로 확정될 때까지 추적하고 (상태, 체결가)를 돌려준다. 상태는 체결, 거부, 취소, 불명 중 하나다."""
         key = order_no.lstrip("0")
         deadline = time.time() + 10
         while time.time() < deadline and now_hms() < HARD_CUTOFF:
@@ -226,12 +218,12 @@ def main():
         log.write("WARNING", "거래 안 함", 사유="오늘 실시간 신호 없음", 신호파일=str(args.signal))
         return
     log.write("INFO", "신호", 아시아날짜=sig["아시아날짜"], 계산시각=sig["계산시각_KST"], 방법1확률=sig["방법1확률"],
-              문턱=sig["문턱"], 결정=sig["결정"], 사용종목수=sig["사용종목수"], 종가대체=sig["종가대체"])
+              임계값=sig["임계값"], 결정=sig["결정"], 사용종목수=sig["사용종목수"], 종가대체=sig["종가대체"])
     try:
         prob = float(sig["방법1확률"])
     except ValueError:
         prob = float("nan")
-    if not sig["결정"].startswith("매수") or "주의" in sig["결정"] or not prob < float(sig["문턱"]):
+    if not sig["결정"].startswith("매수") or "주의" in sig["결정"] or not prob < float(sig["임계값"]):
         log.write("INFO", "거래 안 함", 사유=sig["결정"], 확률=sig["방법1확률"])
         return
     if now_hms() > ENTRY_DEADLINE:

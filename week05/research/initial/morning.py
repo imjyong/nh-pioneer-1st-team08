@@ -1,4 +1,4 @@
-"""4단계: 아시아 오전장 갈림 → 오후 MNQ. 정의는 4단계_오전장_사전고정_1117.md 그대로."""
+"""가설 2(문서 4단계): 아시아 오전장 갈림이 오후 MNQ 수익률과 변동성을 예측하는지 검정한다. 정의는 4단계_오전장_사전고정_1117.md 그대로."""
 from pathlib import Path
 
 import numpy as np
@@ -6,7 +6,7 @@ import pandas as pd
 import statsmodels.api as sm
 from statsmodels.stats.multitest import multipletests
 
-RAW = Path(__file__).resolve().parents[3] / "data" / "market" / "week05_yahoo"
+RAW = Path(__file__).resolve().parents[4] / "data" / "market" / "week05_yahoo"
 OUT = Path(__file__).resolve().parent / "results"
 OUT.mkdir(exist_ok=True)
 HOLDOUT_FROM = pd.Timestamp("2026-11-12")
@@ -86,6 +86,7 @@ def hac(y, X):
 
 
 def boot_p(y, X_full, X_restr, t_obs, block, rng):
+    """γ=0 제한모형의 잔차에 블록 단위 ±1 부호를 곱해 HAC t 통계량의 양측 귀무분포를 만든다."""
     r = sm.OLS(y, sm.add_constant(X_restr)).fit()
     fitted, resid = r.fittedvalues.values, r.resid.values
     n, hits = len(y), 0

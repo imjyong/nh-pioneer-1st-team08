@@ -1,8 +1,8 @@
-"""6단계 사후 분석: 아시아 대형 AI주(d) → 2차 노출 기업(d+1~d+3). 판정에 쓰지 않는다."""
+"""가설 4 사후 분석(문서 6단계): 아시아 대형 AI주의 D일 수익률과 2차 수혜 기업의 D+1~D+3 반응을 분석한다. 본선 판정에는 쓰지 않는다."""
 import numpy as np
 import pandas as pd
 
-from second_tier import COUNTRY, END, MKT, RES, START, load, stock_returns
+from second_tier_delay import COUNTRY, END, MKT, RES, START, load, stock_returns
 
 B, BLOCK = 10_000, 10
 rng = np.random.default_rng(20261119)
@@ -15,7 +15,7 @@ def country_frame(c):
     adj = {t: stock_returns(t, cal) - stock_returns(MKT[t], cal) for t in g["sec"] + g["large"]}
     A = pd.DataFrame(adj)
     S, L = A[g["sec"]].mean(axis=1), A[g["large"]].mean(axis=1)
-    Y = S.shift(-1) + S.shift(-2) + S.shift(-3)  # 현지 거래일 기준 d+1~d+3 (하나라도 결측이면 NaN)
+    Y = S.shift(-1) + S.shift(-2) + S.shift(-3)  # 현지 거래일 기준 D+1~D+3이며, 하나라도 결측이면 NaN으로 둔다
     f = pd.DataFrame({"L": L, "S": S, "Y": Y})
     return f[(f.index >= START)].dropna()
 
@@ -33,7 +33,7 @@ def main():
     g_obs = {c: gamma(f) for c, f in frames.items()}
     g_bar = np.mean(list(g_obs.values()))
 
-    # 제한모형 Y = α + δS 잔차
+    # 귀무가설 γ=0을 강제한 제한모형 Y = α + δS의 잔차로 부트스트랩 표본을 만든다
     fit, res = {}, {}
     for c, f in frames.items():
         X0 = np.column_stack([np.ones(n), f["S"]])

@@ -1,9 +1,5 @@
-"""2단계: 야후 일봉을 한국 시간 순서로 맞추고, 시장 간 상관과 계층적 군집을 본다.
-
-순서: 미국 D-1 정규장 → 아시아 D 정규장 → (17시 신호) → 미국 D 정규장
-- 같은 창 비교(군집용): 아시아 D 종가→종가 수익률 vs 미국 D-1 종가→종가 수익률
-  (아시아 D-1 종가 ~ D 종가 사이에 미국 D-1 장이 통째로 들어가서 창이 겹친다)
-- 선행 비교: 아시아 D 수익률 vs 미국 D 시가→종가 수익률 (아시아가 끝난 뒤의 미국)
+"""초기 탐색(문서 2단계): 야후 일봉을 한국 시간 순서로 맞추고 시장 간 상관과 계층적 군집을 계산한다.
+군집에는 아시아 D와 그보다 먼저 끝난 미국 D-1 수익률을 쓴다.
 """
 from pathlib import Path
 
@@ -15,7 +11,7 @@ import pandas as pd
 from scipy.cluster.hierarchy import dendrogram, linkage
 from scipy.spatial.distance import squareform
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 RAW = ROOT / "data" / "market" / "week05_yahoo"
 FIG = Path(__file__).resolve().parent / "figs"
 FIG.mkdir(exist_ok=True)

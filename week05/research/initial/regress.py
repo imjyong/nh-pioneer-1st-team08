@@ -1,4 +1,4 @@
-"""3단계: 사전 고정(3단계_사전고정_1117.md, 수정 절 포함) 그대로 회귀·순열 검정·워크포워드를 돌린다."""
+"""가설 1(문서 3단계): 사전 고정한 회귀, 순열 검정, 워크포워드를 그대로 돌린다."""
 from pathlib import Path
 
 import numpy as np
@@ -6,7 +6,7 @@ import pandas as pd
 import statsmodels.api as sm
 from statsmodels.stats.multitest import multipletests
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[4]
 RAW = ROOT / "data" / "market" / "week05_yahoo"
 OUT = Path(__file__).resolve().parent / "results"
 OUT.mkdir(exist_ok=True)
@@ -85,7 +85,7 @@ def run_test(df, problem):
     m = sm.OLS(df[ycol], X).fit(cov_type="HAC", cov_kwds={"maxlags": 5})
     b1, p_hac = m.params[xcols[0]], m.pvalues[xcols[0]]
 
-    # 순열: 아시아 특징 묶음 전체를 같이 원형 이동
+    # 갈림과 공통 요인의 관계는 유지하고 미국 목표와의 시차만 끊기 위해 두 특징을 함께 원형 이동한다
     rng = np.random.default_rng(SEED)
     asia_block = df[xcols[0::2]].values  # 갈림·공통 (또는 절댓값)
     us_part = df[[xcols[1]]].values

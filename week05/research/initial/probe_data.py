@@ -1,7 +1,7 @@
-"""상품별 1분봉을 조금씩 받아 기간과 한국 시간대별 거래 여부를 확인한다 (시세 조회만)."""
+"""NH 차트 API로 상품별 1분봉의 조회 가능 기간과 시간대별 데이터 밀도를 확인한다. 주문은 내지 않는다."""
 import sys, collections
 from pathlib import Path
-REPO = Path(__file__).resolve().parents[3] / "nh-pioneer-1st-team08"
+REPO = Path(__file__).resolve().parents[4] / "nh-pioneer-1st-team08"
 sys.path.insert(0, str(REPO))
 from core.client import create_client
 from core.market_data import fetch_chart
