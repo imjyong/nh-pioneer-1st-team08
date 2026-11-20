@@ -1,6 +1,7 @@
 # 가설 2 사전 고정: 아시아 오전장 지역 차이와 오후 MNQ (11/17, 결과를 보기 전에 작성)
 
-관련 파일
+## 관련 파일
+
 - 코드: `research/initial/morning.py`, `research/initial/check_lunch_bars.py`
 
 ## 배경
