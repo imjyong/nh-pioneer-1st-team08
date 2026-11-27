@@ -1,0 +1,85 @@
+{
+  "name": "MNQ-MGC spread + risk",
+  "exchange": "FCME",
+  "legs": [
+    {"symbol": "MNQZ26", "name": "Micro E-mini Nasdaq-100 202612", "tick_size": 0.25, "point_value": 2},
+    {"symbol": "MGCZ26", "name": "Micro Gold 202612", "tick_size": 0.1, "point_value": 10}
+  ],
+  "fee_per_contract": 2.0,
+  "selected_version": "all",
+
+  "session": {"entry_start": "150000", "entry_end": "173000", "close_time": "175500", "final_check_time": "175700"},
+
+  "strategy": {
+    "window": 60,
+    "entry_z": 2.0,
+    "target_z": 1.0,
+    "stop_z": 3.0,
+    "max_loss": 300,
+    "hold_minutes": 45,
+    "max_entries_per_day": 4,
+    "daily_loss": 600,
+    "cooldown_minutes": 15,
+    "size_tolerance": 0.10,
+    "breakeven": false,
+    "cost_filter": true
+  },
+
+  "risk": {
+    "half_life_window": 120,
+    "max_half_life": 45,
+    "live_stop": 280,
+    "vol_days": 5,
+    "history_window": ["150000", "175500"],
+    "vol_hold_minutes": 45,
+    "max_expected_move": 300,
+    "multi_day_count": 3,
+    "multi_day_loss": 1200,
+    "max_loss_streak": 3,
+    "stop_overshoot_alert": 20,
+    "emergency_leg_loss": 600,
+    "psi_reference": ["20260930", "20261027"],
+    "psi_alert": 0.25
+  },
+
+  "live": {
+    "warmup_bars": 300,
+    "history_bars": 9000,
+    "fill_timeout_seconds": 10,
+    "max_silence_seconds": 120,
+    "max_leg_silence_seconds": 300,
+    "max_rejects": 3
+  },
+
+  "rules": {
+    "half_life": false,
+    "live_stop": false,
+    "vol_cap": false,
+    "daily_flatten": false,
+    "multi_day": false,
+    "loss_streak": false
+  },
+
+  "versions": {
+    "base": {},
+    "R1_half_life": {"half_life": true},
+    "R2_live_stop": {"live_stop": true},
+    "R3_vol_cap": {"vol_cap": true},
+    "R4_daily_flatten": {"daily_flatten": true, "loss_streak": true},
+    "R5_multi_day": {"multi_day": true},
+    "all": {"half_life": true, "live_stop": true, "vol_cap": true, "daily_flatten": true, "multi_day": true, "loss_streak": true}
+  },
+
+  "backtest": {
+    "start_date": "20260914",
+    "end_date": "20261120",
+    "periods": {
+      "독립 확인 9/14~9/29": ["20260914", "20260929"],
+      "4주차 기간 9/30~11/9": ["20260930", "20261109"],
+      "금 하락 11/10~11/20": ["20261110", "20261120"]
+    },
+    "slippage_ticks": 1,
+    "bootstrap_block": 5,
+    "bootstrap_samples": 10000
+  }
+}
