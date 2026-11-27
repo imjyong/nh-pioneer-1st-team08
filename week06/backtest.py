@@ -285,7 +285,7 @@ def print_summary(rows, periods):
 
 
 def judge(results, rows, days, config):
-    """계획서 판정 기준. 낙폭과 순손익 기준이 본 판정이고 p값은 참고용이다."""
+    """미리 정한 판정 기준. 낙폭과 순손익 기준이 본 판정이고 p값은 참고용이다."""
     periods = config["backtest"]["periods"]
     falling, fitted = list(periods)[2], list(periods)[1]
 
