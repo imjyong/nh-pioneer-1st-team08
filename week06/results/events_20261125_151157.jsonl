@@ -1,0 +1,196 @@
+{"timestamp": "2026-11-25T15:11:57+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "시작", "data": {"종목": "Micro E-mini Nasdaq-100 202612(MNQZ26) / Micro Gold 202612(MGCZ26)", "브로커": "mock", "전략": "all", "시간": "contest 150000~173000 진입, 175500 청산"}}
+{"timestamp": "2026-11-25T15:11:58+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "계좌 동기화", "data": {"예탁자산": "$100,142.00", "포지션": "없음", "미체결": "0건"}}
+{"timestamp": "2026-11-25T15:11:58+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "준비", "data": {"스프레드": "299분", "수신": "WebSocket"}}
+{"timestamp": "2026-11-25T15:12:16+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "변동성", "data": {"기간": "20261118~20261124 (5일)", "σ": "4.36bp / 4.68bp", "상관": "0.36"}}
+{"timestamp": "2026-11-25T15:12:17+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "시장 변화", "data": {"날짜": "20261124", "PSI": "0.50", "기준": "0.25 초과면 백테스트 때와 다른 시장"}}
+{"timestamp": "2026-11-25T15:12:17+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험관리", "data": {"half_life": "켬", "live_stop": "켬", "vol_cap": "켬", "daily_flatten": "켬", "multi_day": "켬", "loss_streak": "켬"}}
+{"timestamp": "2026-11-25T15:13:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "계약 수", "data": {"MNQZ26": "2계약 ($103,795)", "MGCZ26": "3계약 ($105,783)", "예상비용": "$28.00"}}
+{"timestamp": "2026-11-25T15:15:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25938.50", "MGCZ26": "3522.60", "z": "+1.43", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:15:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "149.9분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:20:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25934.00", "MGCZ26": "3523.80", "z": "+1.15", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:20:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "146.8분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:25:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25912.00", "MGCZ26": "3522.40", "z": "+0.64", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:25:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "75.0분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:30:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25884.75", "MGCZ26": "3524.90", "z": "-0.14", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:30:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "48.8분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:35:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25884.50", "MGCZ26": "3522.10", "z": "+0.05", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:35:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "48.9분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:40:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25910.00", "MGCZ26": "3517.70", "z": "+1.26", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:40:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "99.9분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:45:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25877.50", "MGCZ26": "3518.70", "z": "-0.16", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:45:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "40.1분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:50:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25901.75", "MGCZ26": "3519.90", "z": "+0.68", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:50:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "39.3분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T15:55:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25865.00", "MGCZ26": "3517.70", "z": "-0.44", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T15:55:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "27.7분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:00:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25858.00", "MGCZ26": "3513.70", "z": "-0.54", "포지션": "없음", "하루손익": "$+0.00", "호출": "68회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:00:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "30.9분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:02:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1601", "z": "-2.13", "방향": "스프레드 매수", "반감기": "26.2분", "예상변동액": "$359", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:05:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25871.25", "MGCZ26": "3519.30", "z": "-1.26", "포지션": "없음", "하루손익": "$+0.00", "호출": "70회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:05:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "25.2분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:10:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25861.00", "MGCZ26": "3519.80", "z": "-1.09", "포지션": "없음", "하루손익": "$+0.00", "호출": "70회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:10:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "23.1분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:15:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25833.25", "MGCZ26": "3517.70", "z": "-1.85", "포지션": "없음", "하루손익": "$+0.00", "호출": "70회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:15:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "16.7분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:17:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1616", "z": "-2.41", "방향": "스프레드 매수", "반감기": "19.5분", "예상변동액": "$359", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:18:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1617", "z": "-2.53", "방향": "스프레드 매수", "반감기": "18.8분", "예상변동액": "$359", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:19:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1618", "z": "-2.71", "방향": "스프레드 매수", "반감기": "18.8분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:20:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1619", "z": "-2.81", "방향": "스프레드 매수", "반감기": "17.8분", "예상변동액": "$359", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:20:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25800.75", "MGCZ26": "3519.70", "z": "-2.81", "포지션": "없음", "하루손익": "$+0.00", "호출": "70회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:20:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "17.8분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:21:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1620", "z": "-2.86", "방향": "스프레드 매수", "반감기": "17.6분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:22:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1621", "z": "-2.64", "방향": "스프레드 매수", "반감기": "14.8분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:22:35+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "시세 수신 없음"}}
+{"timestamp": "2026-11-25T16:22:38+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:41+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:41+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:44+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:44+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:47+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:47+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:50+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:50+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:53+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:53+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:56+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:56+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:22:59+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:22:59+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:02+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "오류", "data": {"단계": "분봉 복구", "내용": "HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError(\"HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or", "조치": "다음 분에 재시도"}}
+{"timestamp": "2026-11-25T16:23:02+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:02+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:05+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:05+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:08+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:08+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:11+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:11+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:14+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:14+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:17+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:17+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:20+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:20+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:23+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:23+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:26+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:26+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:29+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:40+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectTimeout"}}
+{"timestamp": "2026-11-25T16:23:43+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:43+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:46+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:46+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:49+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:49+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:52+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:52+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:55+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:55+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:23:58+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:23:58+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:01+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "오류", "data": {"단계": "분봉 복구", "내용": "HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError(\"HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or", "조치": "다음 분에 재시도"}}
+{"timestamp": "2026-11-25T16:24:01+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:01+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:04+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:04+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:07+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:07+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:10+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:10+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:13+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:13+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:16+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:16+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:19+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:19+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:22+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:22+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:25+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:25+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:28+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:28+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:31+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:31+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:34+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:34+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:37+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:37+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:40+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:40+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:43+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:43+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:46+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:46+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:49+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:49+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:52+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:52+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:55+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:55+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:24:58+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:24:58+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:25:01+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "오류", "data": {"단계": "분봉 복구", "내용": "HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError(\"HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or", "조치": "다음 분에 재시도"}}
+{"timestamp": "2026-11-25T16:25:01+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:25:01+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:25:04+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:25:04+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:25:07+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25788.00", "MGCZ26": "3519.00", "z": "-2.17", "포지션": "없음", "하루손익": "$+0.00", "호출": "119회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:25:07+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "13.0분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:25:07+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:25:07+09:00", "run_id": "20261125_151157", "level": "ERROR", "event": "재접속 실패", "data": {"원인": "ConnectionError"}}
+{"timestamp": "2026-11-25T16:25:10+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "WebSocketConnectionClosedException"}}
+{"timestamp": "2026-11-25T16:26:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1625", "z": "-2.77", "방향": "스프레드 매수", "반감기": "16.6분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:27:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1626", "z": "-2.36", "방향": "스프레드 매수", "반감기": "15.6분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:28:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1627", "z": "-2.73", "방향": "스프레드 매수", "반감기": "21.5분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:29:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1628", "z": "-2.65", "방향": "스프레드 매수", "반감기": "32.8분", "예상변동액": "$358", "진입": "안 함 (변동성 상한)"}}
+{"timestamp": "2026-11-25T16:30:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1629", "z": "-2.67", "방향": "스프레드 매수", "반감기": "51.0분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:30:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25732.00", "MGCZ26": "3520.70", "z": "-2.67", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:30:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "51.0분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:31:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1630", "z": "-2.56", "방향": "스프레드 매수", "반감기": "166.8분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:32:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1631", "z": "-2.66", "방향": "스프레드 매수", "반감기": "306.3분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:33:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1632", "z": "-2.40", "방향": "스프레드 매수", "반감기": "487.3분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:34:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1633", "z": "-2.49", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:35:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1634", "z": "-2.23", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:35:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25733.00", "MGCZ26": "3524.60", "z": "-2.23", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:35:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "inf분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:37:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1636", "z": "-2.46", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:38:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1637", "z": "-2.51", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:39:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1638", "z": "-2.03", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (손실 한도)"}}
+{"timestamp": "2026-11-25T16:40:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1639", "z": "-2.18", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (반감기)"}}
+{"timestamp": "2026-11-25T16:40:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25666.25", "MGCZ26": "3523.20", "z": "-2.18", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:40:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "inf분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:41:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "신호", "data": {"분": "1640", "z": "-2.10", "방향": "스프레드 매수", "반감기": "inf분", "예상변동액": "$358", "진입": "안 함 (손실 한도)"}}
+{"timestamp": "2026-11-25T16:45:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25665.50", "MGCZ26": "3519.60", "z": "-1.55", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:45:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "inf분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:50:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25727.25", "MGCZ26": "3526.90", "z": "-1.16", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:50:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "inf분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T16:55:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25753.25", "MGCZ26": "3522.80", "z": "-0.43", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T16:55:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "81.6분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:00:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25797.50", "MGCZ26": "3522.40", "z": "+0.15", "포지션": "없음", "하루손익": "$+0.00", "호출": "125회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:00:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "56.4분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:05:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25788.25", "MGCZ26": "3516.40", "z": "+0.58", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:05:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "53.0분", "예상변동액": "$358", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:10:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25801.75", "MGCZ26": "3522.20", "z": "+0.72", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:10:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "39.7분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:15:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25786.75", "MGCZ26": "3520.40", "z": "+0.69", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:15:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "37.1분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:20:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25781.75", "MGCZ26": "3523.90", "z": "+0.57", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:20:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "36.0분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:25:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25773.25", "MGCZ26": "3528.10", "z": "-0.21", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:25:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "39.5분", "예상변동액": "$359", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:30:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25845.75", "MGCZ26": "3531.30", "z": "+0.70", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:30:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "37.4분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:35:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25884.50", "MGCZ26": "3533.20", "z": "+1.10", "포지션": "없음", "하루손익": "$+0.00", "호출": "127회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:35:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "29.0분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:38:13+09:00", "run_id": "20261125_151157", "level": "WARNING", "event": "재접속", "data": {"사유": "시세 수신 없음"}}
+{"timestamp": "2026-11-25T17:40:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25894.50", "MGCZ26": "3531.40", "z": "+1.55", "포지션": "없음", "하루손익": "$+0.00", "호출": "132회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:40:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "24.5분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:45:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25876.75", "MGCZ26": "3535.30", "z": "+0.52", "포지션": "없음", "하루손익": "$+0.00", "호출": "132회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:45:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "23.3분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:50:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25841.25", "MGCZ26": "3536.40", "z": "-1.17", "포지션": "없음", "하루손익": "$+0.00", "호출": "132회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:50:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "19.4분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:55:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "상태", "data": {"MNQZ26": "25828.50", "MGCZ26": "3533.50", "z": "-0.73", "포지션": "없음", "하루손익": "$+0.00", "호출": "132회", "토큰재발급": "0회"}}
+{"timestamp": "2026-11-25T17:55:05+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "위험 상태", "data": {"반감기": "16.8분", "예상변동액": "$360", "연속손실": "0회"}}
+{"timestamp": "2026-11-25T17:57:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "최종 확인", "data": {"예탁자산": "$100,142.00", "포지션": "없음", "미체결": "0건"}}
+{"timestamp": "2026-11-25T17:57:00+09:00", "run_id": "20261125_151157", "level": "INFO", "event": "종료 요약", "data": {"진입": "0회", "손익": "$+0.00", "호출": "138회"}}
