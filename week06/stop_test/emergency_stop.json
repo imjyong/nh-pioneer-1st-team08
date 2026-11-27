@@ -1,0 +1,86 @@
+{
+  "name": "손절 테스트 B: 비상 스톱 체결",
+  "exchange": "FCME",
+  "legs": [
+    {
+      "symbol": "MNQZ26",
+      "name": "Micro E-mini Nasdaq-100 202612",
+      "tick_size": 0.25,
+      "point_value": 2
+    },
+    {
+      "symbol": "MGCZ26",
+      "name": "Micro Gold 202612",
+      "tick_size": 0.1,
+      "point_value": 10
+    }
+  ],
+  "fee_per_contract": 2.0,
+  "selected_version": "stop_test",
+  "session": {
+    "entry_start": "132000",
+    "entry_end": "133500",
+    "close_time": "140500",
+    "final_check_time": "140700"
+  },
+  "strategy": {
+    "window": 60,
+    "entry_z": 0.0,
+    "target_z": 5.0,
+    "stop_z": 10.0,
+    "max_loss": 5000,
+    "hold_minutes": 40,
+    "max_entries_per_day": 1,
+    "daily_loss": 600,
+    "cooldown_minutes": 15,
+    "size_tolerance": 0.1,
+    "breakeven": false,
+    "cost_filter": false
+  },
+  "risk": {
+    "half_life_window": 120,
+    "max_half_life": 45,
+    "live_stop": 280,
+    "vol_days": 5,
+    "history_window": [
+      "150000",
+      "175500"
+    ],
+    "vol_hold_minutes": 45,
+    "max_expected_move": 300,
+    "multi_day_count": 3,
+    "multi_day_loss": 1200,
+    "max_loss_streak": 3,
+    "stop_overshoot_alert": 20,
+    "emergency_leg_loss": 20,
+    "psi_reference": [
+      "20260930",
+      "20261027"
+    ],
+    "psi_alert": 0.25
+  },
+  "live": {
+    "warmup_bars": 300,
+    "history_bars": 9000,
+    "fill_timeout_seconds": 10,
+    "max_silence_seconds": 120,
+    "max_leg_silence_seconds": 300,
+    "max_rejects": 3
+  },
+  "rules": {
+    "half_life": false,
+    "live_stop": false,
+    "vol_cap": false,
+    "daily_flatten": false,
+    "multi_day": false,
+    "loss_streak": false
+  },
+  "versions": {
+    "stop_test": {
+      "daily_flatten": true
+    }
+  },
+  "backtest": {
+    "slippage_ticks": 1
+  }
+}
