@@ -1,0 +1,937 @@
+14:55:24 INFO    [시작] 종목=Micro E-mini Nasdaq-100 202612(MNQZ26) / Micro Gold 202612(MGCZ26) | 브로커=mock | 전략=all | 시간=contest 150000~173000 진입, 175500 청산
+14:55:24 INFO    [계좌 동기화] 예탁자산=$100,128.00 | 포지션=없음 | 미체결=0건
+14:55:25 INFO    [준비] 스프레드=299분 | 수신=WebSocket
+14:55:41 INFO    [변동성] 기간=20261120~20261126 (5일) | σ=4.76bp / 5.11bp | 상관=0.39
+14:55:43 WARNING [시장 변화] 날짜=20261126 | PSI=0.32 | 기준=0.25 초과면 백테스트 때와 다른 시장
+14:55:43 INFO    [위험관리] half_life=켬 | live_stop=켬 | vol_cap=켬 | daily_flatten=켬 | multi_day=켬 | loss_streak=켬
+14:55:43 INFO    [상태] MNQZ26=26849.75 | MGCZ26=3643.50 | z=+0.82 | 포지션=없음 | 하루손익=$+0.00 | 호출=68회 | 토큰재발급=0회
+14:55:43 INFO    [위험 상태] 반감기=5.1분 | 연속손실=0회
+15:00:05 INFO    [상태] MNQZ26=26858.00 | MGCZ26=3639.70 | z=+1.49 | 포지션=없음 | 하루손익=$+0.00 | 호출=68회 | 토큰재발급=0회
+15:00:05 INFO    [위험 상태] 반감기=6.4분 | 연속손실=0회
+15:01:00 INFO    [계약 수] MNQZ26=2계약 ($107,335) | MGCZ26=3계약 ($109,245) | 예상비용=$28.00
+15:05:05 INFO    [상태] MNQZ26=26831.75 | MGCZ26=3643.60 | z=+0.06 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:05:05 INFO    [위험 상태] 반감기=5.5분 | 예상변동액=$398 | 연속손실=0회
+15:10:05 INFO    [상태] MNQZ26=26853.50 | MGCZ26=3639.10 | z=+1.29 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:10:05 INFO    [위험 상태] 반감기=6.5분 | 예상변동액=$398 | 연속손실=0회
+15:15:05 INFO    [상태] MNQZ26=26858.00 | MGCZ26=3643.30 | z=+0.72 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:15:05 INFO    [위험 상태] 반감기=6.0분 | 예상변동액=$398 | 연속손실=0회
+15:20:05 INFO    [상태] MNQZ26=26855.75 | MGCZ26=3643.80 | z=+0.59 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:20:05 INFO    [위험 상태] 반감기=5.8분 | 예상변동액=$398 | 연속손실=0회
+15:25:05 INFO    [상태] MNQZ26=26857.75 | MGCZ26=3644.70 | z=+0.59 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:25:05 INFO    [위험 상태] 반감기=5.6분 | 예상변동액=$398 | 연속손실=0회
+15:30:05 INFO    [상태] MNQZ26=26832.00 | MGCZ26=3649.00 | z=-0.73 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:30:05 INFO    [위험 상태] 반감기=5.4분 | 예상변동액=$399 | 연속손실=0회
+15:35:05 INFO    [상태] MNQZ26=26850.50 | MGCZ26=3649.50 | z=-0.97 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:35:05 INFO    [위험 상태] 반감기=5.6분 | 예상변동액=$399 | 연속손실=0회
+15:40:05 INFO    [상태] MNQZ26=26829.50 | MGCZ26=3646.20 | z=-0.07 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:40:05 INFO    [위험 상태] 반감기=5.5분 | 예상변동액=$398 | 연속손실=0회
+15:45:05 INFO    [상태] MNQZ26=26812.25 | MGCZ26=3647.30 | z=-1.94 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:45:05 INFO    [위험 상태] 반감기=5.7분 | 예상변동액=$398 | 연속손실=0회
+15:46:00 INFO    [신호] 분=1545 | z=-2.50 | 방향=스프레드 매수 | 반감기=6.3분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:47:00 INFO    [신호] 분=1546 | z=-2.54 | 방향=스프레드 매수 | 반감기=6.8분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:48:00 INFO    [신호] 분=1547 | z=-2.53 | 방향=스프레드 매수 | 반감기=7.3분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:49:00 INFO    [신호] 분=1548 | z=-2.22 | 방향=스프레드 매수 | 반감기=7.4분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:50:00 INFO    [신호] 분=1549 | z=-2.47 | 방향=스프레드 매수 | 반감기=8.4분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:50:05 INFO    [상태] MNQZ26=26773.00 | MGCZ26=3648.20 | z=-2.47 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:50:05 INFO    [위험 상태] 반감기=8.4분 | 예상변동액=$398 | 연속손실=0회
+15:51:00 INFO    [신호] 분=1550 | z=-2.35 | 방향=스프레드 매수 | 반감기=8.9분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:52:00 INFO    [신호] 분=1551 | z=-2.64 | 방향=스프레드 매수 | 반감기=10.9분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:53:00 INFO    [신호] 분=1552 | z=-2.70 | 방향=스프레드 매수 | 반감기=13.3분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:54:00 INFO    [신호] 분=1553 | z=-2.37 | 방향=스프레드 매수 | 반감기=13.3분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:55:00 INFO    [신호] 분=1554 | z=-2.34 | 방향=스프레드 매수 | 반감기=15.3분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+15:55:05 INFO    [상태] MNQZ26=26766.50 | MGCZ26=3652.00 | z=-2.34 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+15:55:05 INFO    [위험 상태] 반감기=15.3분 | 예상변동액=$398 | 연속손실=0회
+15:56:00 INFO    [신호] 분=1555 | z=-2.38 | 방향=스프레드 매수 | 반감기=18.6분 | 예상변동액=$399 | 진입=안 함 (변동성 상한)
+16:00:05 INFO    [상태] MNQZ26=26766.00 | MGCZ26=3653.30 | z=-1.96 | 포지션=없음 | 하루손익=$+0.00 | 호출=70회 | 토큰재발급=0회
+16:00:05 INFO    [위험 상태] 반감기=18.4분 | 예상변동액=$398 | 연속손실=0회
+16:01:00 INFO    [신호] 분=1600 | z=-2.16 | 방향=스프레드 매수 | 반감기=27.2분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+16:02:00 INFO    [신호] 분=1601 | z=-2.24 | 방향=스프레드 매수 | 반감기=38.4분 | 예상변동액=$398 | 진입=안 함 (변동성 상한)
+16:03:00 INFO    [신호] 분=1602 | z=-2.03 | 방향=스프레드 매수 | 반감기=34.5분 | 예상변동액=$399 | 진입=안 함 (변동성 상한)
+16:05:00 INFO    [신호] 분=1604 | z=-2.03 | 방향=스프레드 매수 | 반감기=50.4분 | 예상변동액=$399 | 진입=안 함 (반감기)
+16:05:05 INFO    [상태] MNQZ26=26772.50 | MGCZ26=3659.90 | z=-2.03 | 포지션=없음 | 하루손익=$+0.00 | 호출=72회 | 토큰재발급=0회
+16:05:05 INFO    [위험 상태] 반감기=50.4분 | 예상변동액=$399 | 연속손실=0회
+16:06:00 INFO    [신호] 분=1605 | z=-2.29 | 방향=스프레드 매수 | 반감기=465.0분 | 예상변동액=$399 | 진입=안 함 (반감기)
+16:07:00 INFO    [신호] 분=1606 | z=-2.21 | 방향=스프레드 매수 | 반감기=1720.7분 | 예상변동액=$399 | 진입=안 함 (반감기)
+16:10:05 INFO    [상태] MNQZ26=26751.25 | MGCZ26=3657.30 | z=-1.62 | 포지션=없음 | 하루손익=$+0.00 | 호출=72회 | 토큰재발급=0회
+16:10:05 INFO    [위험 상태] 반감기=52.6분 | 예상변동액=$399 | 연속손실=0회
+16:15:05 INFO    [상태] MNQZ26=26725.25 | MGCZ26=3659.60 | z=-1.68 | 포지션=없음 | 하루손익=$+0.00 | 호출=72회 | 토큰재발급=0회
+16:15:05 INFO    [위험 상태] 반감기=93.7분 | 예상변동액=$399 | 연속손실=0회
+16:20:05 INFO    [상태] MNQZ26=26747.75 | MGCZ26=3657.30 | z=-1.15 | 포지션=없음 | 하루손익=$+0.00 | 호출=72회 | 토큰재발급=0회
+16:20:05 INFO    [위험 상태] 반감기=47.7분 | 예상변동액=$399 | 연속손실=0회
+16:23:48 WARNING [재접속] 사유=시세 수신 없음
+16:23:51 ERROR   [재접속 실패] 원인=ConnectionError
+16:23:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:23:54 ERROR   [재접속 실패] 원인=ConnectionError
+16:23:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:23:57 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:00 ERROR   [오류] 단계=분봉 복구 | 내용=HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError("HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or | 조치=다음 분에 재시도
+16:24:01 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:01 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:04 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:04 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:07 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:10 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:13 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:16 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:16 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:19 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:19 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:22 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:25 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:28 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:31 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:34 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:37 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:40 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:43 ERROR   [재접속 실패] 원인=ConnectionError
+16:24:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:24:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:24:59 ERROR   [재접속 실패] 원인=ReadTimeout
+16:25:07 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:25:07","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:25:07 INFO    [상태] MNQZ26=26744.00 | MGCZ26=3656.90 | z=-0.99 | 포지션=없음 | 하루손익=$+0.00 | 호출=94회 | 토큰재발급=0회
+16:25:07 INFO    [위험 상태] 반감기=74.4분 | 예상변동액=$398 | 연속손실=0회
+16:25:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:17 ERROR   [재접속 실패] 원인=ReadTimeout
+16:25:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:20 ERROR   [재접속 실패] 원인=ConnectionError
+16:25:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:23 ERROR   [재접속 실패] 원인=RuntimeError
+16:25:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:25:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:30 ERROR   [재접속 실패] 원인=RuntimeError
+16:25:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:25:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:50 ERROR   [재접속 실패] 원인=ReadTimeout
+16:25:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:53 ERROR   [재접속 실패] 원인=ConnectionError
+16:25:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:56 ERROR   [재접속 실패] 원인=ConnectionError
+16:25:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:25:59 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:02 ERROR   [오류] 단계=분봉 복구 | 내용=HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError("HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or | 조치=다음 분에 재시도
+16:26:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:02 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:05 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:08 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:11 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:14 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:17 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:20 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:23 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:26 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:29 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:29 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:32 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:35 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:38 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:41 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:44 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:47 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:47 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:50 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:50 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:53 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:56 ERROR   [재접속 실패] 원인=ConnectionError
+16:26:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:26:59 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:02 ERROR   [오류] 단계=분봉 복구 | 내용=HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError("HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or | 조치=다음 분에 재시도
+16:27:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:02 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:05 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:08 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:11 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:14 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:17 ERROR   [재접속 실패] 원인=ConnectionError
+16:27:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:24 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:40 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:52 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:55 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:56 ERROR   [재접속 실패] 원인=RuntimeError
+16:27:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:27:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:28:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:28:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:02 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:05 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:08 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:11 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:14 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:17 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:28:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:48 ERROR   [재접속 실패] 원인=ReadTimeout
+16:28:51 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:51 ERROR   [재접속 실패] 원인=ConnectionError
+16:28:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:54 ERROR   [재접속 실패] 원인=ConnectionError
+16:28:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:28:57 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:00 ERROR   [오류] 단계=분봉 복구 | 내용=HTTPSConnectionPool(host='apidemo.futures.co.kr', port=443): Max retries exceeded with url: /trade/v1/overseas/chart-minute (Caused by NameResolutionError("HTTPSConnection(host='apidemo.futures.co.kr', port=443): Failed to resolve 'apidemo.futures.co.kr' ([Errno 8] nodename nor servname provided, or | 조치=다음 분에 재시도
+16:29:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:00 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:03 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:03 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:06 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:06 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:09 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:09 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:12 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:15 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:15 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:18 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:21 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:21 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:24 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:27 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:30 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:33 ERROR   [재접속 실패] 원인=ConnectionError
+16:29:36 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:36 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:39 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:39 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:42 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:43 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:52 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:55 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:55 ERROR   [재접속 실패] 원인=RuntimeError
+16:29:58 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:29:58 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:01 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:30:01","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:30:01 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:01 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:04 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:04 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:07 INFO    [상태] MNQZ26=26744.00 | MGCZ26=3656.90 | z=-0.84 | 포지션=없음 | 하루손익=$+0.00 | 호출=183회 | 토큰재발급=0회
+16:30:07 INFO    [위험 상태] 반감기=82.3분 | 예상변동액=$398 | 연속손실=0회
+16:30:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:07 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:10 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:14 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:17 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:20 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:23 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:26 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:29 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:32 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:38 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:41 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:44 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:47 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:47 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:50 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:50 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:30:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:30:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:31:00","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:31:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:00 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:03 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:03 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:06 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:06 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:09 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:09 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:12 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:15 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:15 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:18 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:21 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:24 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:41 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:51 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:54 ERROR   [재접속 실패] 원인=RuntimeError
+16:31:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:31:58 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:05 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:32:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:32:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:15 ERROR   [재접속 실패] 원인=ReadTimeout
+16:32:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:28 ERROR   [재접속 실패] 원인=ConnectTimeout
+16:32:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:32 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:38 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:42 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:45 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:45 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:48 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:56 ERROR   [재접속 실패] 원인=RuntimeError
+16:32:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:32:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:33:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:33:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:02 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:05 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:09 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:14 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:19 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:22 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:28 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:40 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:43 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:47 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:50 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:33:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:33:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:34:01","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:34:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:01 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:04 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:04 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:07 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:10 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:13 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:16 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:16 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:19 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:19 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:22 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:32 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:38 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:41 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:44 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:47 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:47 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:50 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:50 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:56 ERROR   [재접속 실패] 원인=RuntimeError
+16:34:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:34:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:35:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:35:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:02 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:05 INFO    [상태] MNQZ26=26744.00 | MGCZ26=3656.90 | z=-0.71 | 포지션=없음 | 하루손익=$+0.00 | 호출=271회 | 토큰재발급=0회
+16:35:05 INFO    [위험 상태] 반감기=111.2분 | 예상변동액=$398 | 연속손실=0회
+16:35:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:05 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:08 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:11 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:15 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:18 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:21 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:24 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:30 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:33 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:36 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:36 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:39 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:39 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:42 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:42 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:45 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:45 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:48 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:48 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:51 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:51 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:54 ERROR   [재접속 실패] 원인=RuntimeError
+16:35:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:35:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:36:00","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:36:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:00 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:03 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:04 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:07 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:10 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:13 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:16 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:16 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:19 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:19 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:22 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:28 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:40 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:43 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:50 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:56 ERROR   [재접속 실패] 원인=RuntimeError
+16:36:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:36:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:37:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:37:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:02 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:05 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:08 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:11 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:14 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:17 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:20 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:23 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:26 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:29 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:32 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:38 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:41 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:44 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:47 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:47 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:51 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:51 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:54 ERROR   [재접속 실패] 원인=RuntimeError
+16:37:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:37:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:38:00","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:38:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:00 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:03 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:03 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:06 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:06 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:09 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:09 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:12 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:15 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:15 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:18 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:21 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:24 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:30 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:33 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:36 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:36 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:39 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:39 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:42 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:42 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:45 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:45 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:48 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:48 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:51 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:51 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:54 ERROR   [재접속 실패] 원인=RuntimeError
+16:38:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:38:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:39:00","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:39:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:00 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:04 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:04 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:07 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:10 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:13 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:16 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:16 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:19 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:19 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:22 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:28 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:40 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:43 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:52 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:55 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:55 ERROR   [재접속 실패] 원인=RuntimeError
+16:39:58 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:39:58 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:01 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:40:01","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:40:01 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:01 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:04 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:04 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:07 INFO    [상태] MNQZ26=26744.00 | MGCZ26=3656.90 | z=-0.59 | 포지션=없음 | 하루손익=$+0.00 | 호출=375회 | 토큰재발급=0회
+16:40:07 INFO    [위험 상태] 반감기=98.7분 | 예상변동액=$398 | 연속손실=0회
+16:40:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:07 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:10 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:13 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:16 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:17 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:20 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:23 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:26 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:29 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:32 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:38 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:41 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:44 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:47 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:47 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:50 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:50 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:56 ERROR   [재접속 실패] 원인=RuntimeError
+16:40:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:40:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:41:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:41:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:02 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:05 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:08 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:11 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:14 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:17 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:20 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:23 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:26 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:29 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:33 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:36 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:36 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:39 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:39 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:42 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:42 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:45 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:45 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:48 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:48 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:51 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:51 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:54 ERROR   [재접속 실패] 원인=RuntimeError
+16:41:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:41:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:42:00","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:42:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:00 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:03 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:03 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:06 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:06 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:09 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:09 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:12 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:15 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:15 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:18 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:21 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:24 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:30 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:33 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:36 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:36 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:39 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:39 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:42 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:42 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:45 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:52 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:55 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:55 ERROR   [재접속 실패] 원인=RuntimeError
+16:42:58 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:42:58 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:01 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:43:01","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:43:01 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:01 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:04 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:04 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:07 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:07 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:10 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:10 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:13 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:13 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:16 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:16 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:19 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:19 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:22 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:28 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:40 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:43 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:52 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:55 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:55 ERROR   [재접속 실패] 원인=RuntimeError
+16:43:58 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:43:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:44:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:44:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:02 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:05 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:05 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:08 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:08 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:11 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:11 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:14 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:14 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:17 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:17 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:20 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:20 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:23 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:23 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:26 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:26 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:29 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:29 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:32 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:32 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:35 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:35 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:38 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:38 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:41 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:41 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:44 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:44 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:47 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:47 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:50 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:50 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:53 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:53 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:56 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:56 ERROR   [재접속 실패] 원인=RuntimeError
+16:44:59 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:44:59 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:02 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:45:02","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:45:02 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:03 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:06 INFO    [상태] MNQZ26=26744.00 | MGCZ26=3656.90 | z=-0.50 | 포지션=없음 | 하루손익=$+0.00 | 호출=478회 | 토큰재발급=0회
+16:45:06 INFO    [위험 상태] 반감기=100.3분 | 예상변동액=$398 | 연속손실=0회
+16:45:06 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:06 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:09 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:09 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:12 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:15 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:15 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:18 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:18 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:21 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:21 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:24 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:24 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:27 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:27 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:30 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:30 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:33 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:33 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:36 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:36 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:39 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:39 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:42 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:42 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:45 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:45 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:48 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:48 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:51 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:51 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:54 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:54 ERROR   [재접속 실패] 원인=RuntimeError
+16:45:57 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:45:57 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:00 ERROR   [오류] 단계=분봉 복구 | 내용=/trade/v1/overseas/chart-minute 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/chart-minute","errorTime":"2026-11-27 16:46:00","errorStatus":401,"errorCode":"EGW052"} | 조치=다음 분에 재시도
+16:46:00 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:00 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:03 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:03 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:06 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:06 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:09 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:09 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:12 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:12 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:15 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:16 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:19 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:19 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:22 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:22 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:25 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:25 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:28 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:28 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:31 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:31 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:34 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:34 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:37 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:37 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:40 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:40 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:43 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:43 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:46 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:46 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:49 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:49 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:52 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:52 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:55 WARNING [재접속] 사유=WebSocketConnectionClosedException
+16:46:55 ERROR   [재접속 실패] 원인=RuntimeError
+16:46:56 ERROR   [오류] 단계=최종 확인 | 내용=/trade/v1/overseas/open-interest 실패: 401 {"errorMessage":"토큰 재발급이 필요합니다.","errorPath":"/trade/v1/overseas/open-interest","errorTime":"2026-11-27 16:46:56","errorStatus":401,"errorCode":"EGW052"} | 조치=수동 확인 필요
+16:46:56 INFO    [종료 요약] 사유=사용자 중단 | 진입=0회 | 손익=$+0.00 | 호출=517회
